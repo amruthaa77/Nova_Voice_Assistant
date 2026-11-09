@@ -2,6 +2,7 @@
 
 from contextlib import asynccontextmanager
 import logging
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -41,17 +42,25 @@ def create_app() -> FastAPI:
         lifespan=lifespan,
     )
 
-    # CORS configuration restricted to local React Vite frontend
-    allowed_origins = [
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-    ]
+    # CORS configuration supporting local Vite dev and deployed production (Vercel)
+    cors_env = os.getenv("CORS_ORIGINS", "").strip()
+    if cors_env and cors_env != "*":
+        allowed_origins = [o.strip() for o in cors_env.split(",") if o.strip()]
+        allow_creds = True
+    else:
+        allowed_origins = [
+            "http://localhost:5173",
+            "http://127.0.0.1:5173",
+            "http://localhost:3000",
+        ]
+        allow_creds = True
 
     app.add_middleware(
         CORSMiddleware,
         allow_origins=allowed_origins,
-        allow_credentials=True,
-        allow_methods=["GET", "POST", "OPTIONS"],
+        allow_origin_regex=r"https://.*\.vercel\.app",
+        allow_credentials=allow_creds,
+        allow_methods=["*"],
         allow_headers=["*"],
     )
 

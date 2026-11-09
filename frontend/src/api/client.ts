@@ -8,7 +8,12 @@ import {
   SaveTranscriptResponse,
 } from './types';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? '';
+const rawBase = (
+  import.meta.env.VITE_API_BASE_URL ??
+  (import.meta.env as any).VITEAPIBASEURL ??
+  ''
+).trim();
+const API_BASE_URL = rawBase.replace(/\/+$/, '');
 
 class ApiClient {
   private async request<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
