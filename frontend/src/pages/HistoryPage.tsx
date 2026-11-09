@@ -133,7 +133,7 @@ export const HistoryPage: React.FC = () => {
               <p className="text-xs text-slate-500 max-w-sm mx-auto">
                 {searchTerm
                   ? `No transcripts match "${searchTerm}". Clear search to view all.`
-                  : 'Start conversations in the Voice Assistant tab to log transcripts.'}
+                  : 'Start conversations with Nova to log transcripts.'}
               </p>
             </GlassCard>
           ) : (

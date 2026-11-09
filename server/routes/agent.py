@@ -45,6 +45,29 @@ def create_agent_signed_url() -> SignedUrlResponse:
 
     try:
         client = ElevenLabs(api_key=config.elevenlabs_api_key)
+
+        # Proactively check available ElevenLabs character quota
+        try:
+            sub = client.user.subscription.get()
+            char_count = getattr(sub, "character_count", 0) or 0
+            char_limit = getattr(sub, "character_limit", 0) or 0
+            remaining = char_limit - char_count
+            if remaining <= 100:
+                logger.warning(
+                    f"ElevenLabs character quota exhausted: {char_count}/{char_limit} characters used."
+                )
+                raise HTTPException(
+                    status_code=status.HTTP_402_PAYMENT_REQUIRED,
+                    detail=(
+                        f"ElevenLabs character quota exhausted ({char_count:,} / {char_limit:,} used on Free Tier). "
+                        "Please update ELEVENLABS_API_KEY in .env with a new key or upgrade your subscription."
+                    ),
+                )
+        except HTTPException:
+            raise
+        except Exception as q_err:
+            logger.debug(f"Quota pre-check skipped: {q_err}")
+
         # Call official ElevenLabs SDK method for generating signed conversation URLs
         response = client.conversational_ai.conversations.get_signed_url(
             agent_id=config.elevenlabs_agent_id,
@@ -59,6 +82,8 @@ def create_agent_signed_url() -> SignedUrlResponse:
             agent_id=config.elevenlabs_agent_id,
         )
 
+    except HTTPException:
+        raise
     except ApiError as e:
         status_code = getattr(e, "status_code", None)
         if status_code == 401:

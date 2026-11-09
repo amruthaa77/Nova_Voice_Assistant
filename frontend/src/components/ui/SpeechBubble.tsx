@@ -6,20 +6,21 @@ interface SpeechBubbleProps {
   status: AssistantStatus;
   errorMessage?: string | null;
   onRetry?: () => void;
+  onBubbleClick?: () => void;
 }
 
 export const SpeechBubble: React.FC<SpeechBubbleProps> = ({
   status,
   errorMessage,
   onRetry,
+  onBubbleClick,
 }) => {
-  // Section 1 requirement: hide the bubble while speaking (transcript shows the words)
+  // Hide the bubble while speaking (transcript shows the spoken words)
   if (status === 'speaking') {
     return null;
   }
 
-  // Section 1 requirement: show idle greeting for the first few seconds,
-  // then settle into the shorter hint "Tap me to talk."
+  // Show idle greeting for first few seconds, then settle into "Tap me to talk."
   const [isSettled, setIsSettled] = useState<boolean>(false);
 
   useEffect(() => {
@@ -37,9 +38,10 @@ export const SpeechBubble: React.FC<SpeechBubbleProps> = ({
   const getBubbleContent = () => {
     switch (status) {
       case 'connecting':
+        // When tapped to start, say "Hi, I'm Nova, your helpful assistant!"
         return {
-          title: 'Hold on, getting ready...',
-          emoji: '⏳',
+          title: "Hi, I'm Nova, your helpful assistant! 👋",
+          emoji: '',
         };
       case 'listening':
         return {
@@ -51,16 +53,34 @@ export const SpeechBubble: React.FC<SpeechBubbleProps> = ({
           title: 'Hmm, let me think...',
           emoji: '💭',
         };
-      case 'error':
+      case 'error': {
+        let displayError = "Something went wrong.";
+        if (errorMessage) {
+          if (errorMessage.toLowerCase().includes('mic') || errorMessage.toLowerCase().includes('permission')) {
+            displayError = "Check your microphone.";
+          } else if (errorMessage.toLowerCase().includes('backend') || errorMessage.toLowerCase().includes('offline')) {
+            displayError = "Backend server offline.";
+          } else if (
+            errorMessage.toLowerCase().includes('quota') ||
+            errorMessage.toLowerCase().includes('exhausted') ||
+            errorMessage.toLowerCase().includes('limit') ||
+            errorMessage.toLowerCase().includes('402')
+          ) {
+            displayError = "Character limit reached.";
+          } else if (errorMessage.toLowerCase().includes('auth') || errorMessage.toLowerCase().includes('invalid api key')) {
+            displayError = "Authentication failed.";
+          } else if (errorMessage.length <= 40) {
+            displayError = errorMessage;
+          } else {
+            displayError = errorMessage.substring(0, 36) + '...';
+          }
+        }
         return {
-          title: errorMessage
-            ? errorMessage.length > 50
-              ? "I can't hear you. Check your mic."
-              : errorMessage
-            : "I can't hear you. Check your mic.",
+          title: displayError,
           emoji: '⚠️',
           action: 'Try again',
         };
+      }
       case 'idle':
       default:
         return {
@@ -75,7 +95,10 @@ export const SpeechBubble: React.FC<SpeechBubbleProps> = ({
   const content = getBubbleContent();
 
   return (
-    <div className="relative inline-block select-none pointer-events-auto">
+    <div
+      onClick={onBubbleClick}
+      className="relative inline-block select-none pointer-events-auto cursor-pointer"
+    >
       <AnimatePresence mode="wait">
         <motion.div
           key={status + (content.title || '')}
@@ -91,7 +114,10 @@ export const SpeechBubble: React.FC<SpeechBubbleProps> = ({
             </p>
             {content.action && onRetry && (
               <button
-                onClick={onRetry}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onRetry();
+                }}
                 className="mt-1 text-xs font-bold text-orange-600 hover:text-orange-700 underline tracking-wide cursor-pointer"
               >
                 {content.action}
@@ -109,3 +135,5 @@ export const SpeechBubble: React.FC<SpeechBubbleProps> = ({
     </div>
   );
 };
+
+export default SpeechBubble;

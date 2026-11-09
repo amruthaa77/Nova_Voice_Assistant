@@ -33,7 +33,7 @@ export const VoiceAssistantPage: React.FC = () => {
 
   // Set page tab title
   useEffect(() => {
-    document.title = 'Nova | AURA';
+    document.title = 'Nova';
   }, []);
 
   // Auto-scroll transcript when turns update
@@ -121,6 +121,7 @@ export const VoiceAssistantPage: React.FC = () => {
             status={status}
             errorMessage={sessionError}
             onRetry={startSession}
+            onBubbleClick={handleToggleSession}
           />
         </div>
 

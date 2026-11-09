@@ -12,7 +12,7 @@ const AppContent: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<NavigationPage>('assistant');
 
   useEffect(() => {
-    document.title = currentPage === 'assistant' ? 'Nova | AURA' : `${pageConfig[currentPage].title} | AURA`;
+    document.title = currentPage === 'assistant' ? 'Nova' : `${pageConfig[currentPage].title} | Nova`;
   }, [currentPage]);
 
   const pageConfig: Record<NavigationPage, { title: string; subtitle?: string }> = {

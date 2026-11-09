@@ -24,7 +24,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentPage, onNavigate }) => 
     icon: React.ComponentType<{ className?: string }>;
   }> = [
     { id: 'overview', label: 'Dashboard', icon: LayoutDashboard },
-    { id: 'assistant', label: 'Nova AI', icon: Sparkles },
+    { id: 'assistant', label: 'Nova', icon: Sparkles },
     { id: 'history', label: 'Conversations', icon: MessageSquareText },
     { id: 'analytics', label: 'Analytics', icon: BarChart2 },
   ];
@@ -41,7 +41,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentPage, onNavigate }) => 
             </div>
           </div>
           <span className="text-[17px] sm:text-[18px] font-bold tracking-tight text-white font-display">
-            AURA
+            NOVA
           </span>
         </div>
 

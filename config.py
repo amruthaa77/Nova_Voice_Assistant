@@ -78,8 +78,8 @@ class Config:
     )
 
     # Agent specifics
-    agent_name: str = "Voice Virtual Assistant"
-    agent_first_message: str = "Hello! I am your voice assistant. How can I help you today?"
+    agent_name: str = "Nova Voice Assistant"
+    agent_first_message: str = "Hi, I'm Nova, your helpful assistant! How can I help you today?"
     agent_llm: str = "gemini-2.0-flash"
     agent_turn_timeout: float = 30.0  # Maximum allowed by ElevenLabs API
     max_conversation_seconds: int = field(

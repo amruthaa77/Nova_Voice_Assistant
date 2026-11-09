@@ -1,0 +1,244 @@
+{
+  "agent_id": "agent_1701m6vfjcehfqfrd118gwmysec0",
+  "agent_name": "Nova Voice Assistant",
+  "conversation_product": "agent",
+  "status": "failed",
+  "user_id": null,
+  "branch_id": "agtbrch_9601m6vfjdg0e2ytzpe0edqnhhgz",
+  "version_id": "agtvrsn_4501m70tt214ekxs8rpeva22z2my",
+  "metadata": {
+    "start_time_unix_secs": 1794252815,
+    "accepted_time_unix_secs": null,
+    "call_duration_secs": 0,
+    "queue_wait_secs": null,
+    "cost": null,
+    "deletion_settings": {
+      "deletion_time_unix_secs": null,
+      "deleted_logs_at_time_unix_secs": null,
+      "deleted_audio_at_time_unix_secs": null,
+      "deleted_transcript_at_time_unix_secs": null,
+      "delete_transcript_and_pii": false,
+      "delete_audio": false
+    },
+    "feedback": {
+      "type": null,
+      "overall_score": null,
+      "likes": 0,
+      "dislikes": 0,
+      "rating": null,
+      "comment": null
+    },
+    "authorization_method": "signed_url",
+    "charging": {
+      "dev_discount": false,
+      "is_burst": false,
+      "tier": "free",
+      "llm_usage": {
+        "irreversible_generation": {
+          "model_usage": {},
+          "detailed_model_usage": []
+        },
+        "initiated_generation": {
+          "model_usage": {},
+          "detailed_model_usage": []
+        }
+      },
+      "llm_price": null,
+      "llm_charge": null,
+      "call_charge": null,
+      "platform_charge": null,
+      "platform_usage": {
+        "category_usage": {}
+      },
+      "platform_price": null,
+      "free_minutes_consumed": 0.0,
+      "free_llm_dollars_consumed": 0.0,
+      "tts_usage": null,
+      "asr_usage": null,
+      "analysis": null,
+      "subagent_charge": null,
+      "voice_surcharge_charge": null,
+      "user_memory": null
+    },
+    "phone_call": null,
+    "batch_call": null,
+    "termination_reason": "",
+    "error": {
+      "code": 3000,
+      "reason": "The AI agent you are trying to reach is not available.",
+      "error_type": "call_initialization_error"
+    },
+    "warnings": [],
+    "main_language": "en",
+    "rag_usage": null,
+    "text_only": false,
+    "features_usage": {
+      "language_detection": {
+        "enabled": false,
+        "used": false
+      },
+      "transfer_to_agent": {
+        "enabled": false,
+        "used": false
+      },
+      "transfer_to_number": {
+        "enabled": false,
+        "used": false
+      },
+      "multivoice": {
+        "enabled": false,
+        "used": false
+      },
+      "dtmf_tones": {
+        "enabled": false,
+        "used": false
+      },
+      "external_mcp_servers": {
+        "enabled": false,
+        "used": false
+      },
+      "pii_zrm_workspace": false,
+      "pii_zrm_agent": false,
+      "tool_dynamic_variable_updates": {
+        "enabled": false,
+        "used": false
+      },
+      "is_livekit": false,
+      "voicemail_detection": {
+        "enabled": false,
+        "used": false
+      },
+      "dtmf_input": {
+        "enabled": false,
+        "used": false
+      },
+      "workflow": {
+        "enabled": false,
+        "tool_node": {
+          "enabled": false,
+          "used": false
+        },
+        "standalone_agent_node": {
+          "enabled": false,
+          "used": false
+        },
+        "phone_number_node": {
+          "enabled": false,
+          "used": false
+        },
+        "end_node": {
+          "enabled": false,
+          "used": false
+        },
+        "override_agent_node": {
+          "enabled": false,
+          "used": false
+        },
+        "say_node": {
+          "enabled": false,
+          "used": false
+        },
+        "update_state_node": {
+          "enabled": false,
+          "used": false
+        },
+        "subgraph_node": {
+          "enabled": false,
+          "used": false
+        },
+        "transfer_to_genesys_node": {
+          "enabled": false,
+          "used": false
+        },
+        "start_procedure_node": {
+          "enabled": false,
+          "used": false
+        }
+      },
+      "agent_testing": {
+        "enabled": false,
+        "tests_ran_after_last_modification": false,
+        "tests_ran_in_last_7_days": false
+      },
+      "versioning": {
+        "enabled": true,
+        "used": false
+      },
+      "file_input": {
+        "enabled": true,
+        "used": false
+      },
+      "freeform_procedure": {
+        "enabled": false,
+        "used": false
+      },
+      "structured_procedure": {
+        "enabled": false,
+        "used": false
+      }
+    },
+    "eleven_assistant": {
+      "is_eleven_assistant": false
+    },
+    "initiator_id": null,
+    "conversation_initiation_source": "unknown",
+    "conversation_initiation_source_version": null,
+    "timezone": null,
+    "async_metadata": null,
+    "whatsapp": null,
+    "sms": null,
+    "agent_created_from": "api",
+    "agent_last_updated_from": "api",
+    "stream_state": null,
+    "voice_rewards": [],
+    "avatar_sessions": [],
+    "cost_fiat": null
+  },
+  "analysis": null,
+  "user_message_count": 0,
+  "agent_message_count": 0,
+  "visited_agents": [],
+  "conversation_initiation_client_data": {
+    "conversation_config_override": {
+      "asr": null,
+      "turn": null,
+      "tts": null,
+      "conversation": null,
+      "agent": null
+    },
+    "custom_llm_extra_body": {},
+    "user_id": null,
+    "source_info": {
+      "source": null,
+      "version": null
+    },
+    "branch_id": null,
+    "environment": null,
+    "starting_workflow_node_id": null,
+    "experiments": [],
+    "procedure_ids": null,
+    "start_procedure_ids": null,
+    "dynamic_variables": {},
+    "tool_mock_config": {
+      "mocking_strategy": "none",
+      "fallback_strategy": "raise_error",
+      "mocked_tool_names": []
+    },
+    "tool_mock_overrides": {}
+  },
+  "environment": "production",
+  "experiment_assignments": null,
+  "hiding_reason": null,
+  "smb_metadata": null,
+  "conversation_id": "conv_0301m70wtfbjenjbkdsxq3k4v815",
+  "has_audio": false,
+  "has_user_audio": false,
+  "has_response_audio": false,
+  "has_auxiliary_audio": false,
+  "transcript": [],
+  "tag_ids": [],
+  "realtime_config_snapshots": null,
+  "orchestrator": null,
+  "realtime_context": null,
+  "otlp_traces": null
+}

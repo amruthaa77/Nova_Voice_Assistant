@@ -20,10 +20,10 @@ import {
 // Temporary debug logging per instructions
 const DEBUG = true;
 
-const auraDebug = (category: string, ...args: any[]) => {
+const novaDebug = (category: string, ...args: any[]) => {
   if (DEBUG) {
     const timestamp = new Date().toISOString().substring(11, 23);
-    console.log(`[AURA-DEBUG] [${timestamp}] [${category}]`, ...args);
+    console.log(`[NOVA-DEBUG] [${timestamp}] [${category}]`, ...args);
   }
 };
 
@@ -85,7 +85,7 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const updateStatus = useCallback((newStatus: AssistantStatus, caller: string) => {
     setStatusState((prev) => {
       if (prev !== newStatus) {
-        auraDebug('STATE', `Transition: "${prev}" -> "${newStatus}" (triggered by: ${caller})`);
+        novaDebug('STATE', `Transition: "${prev}" -> "${newStatus}" (triggered by: ${caller})`);
       }
       return newStatus;
     });
@@ -112,7 +112,7 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   });
 
   const [selectedVoiceId, setSelectedVoiceIdState] = useState<string>(() => {
-    return localStorage.getItem('assistant_voice_id') || '21m00Tcm4TlvDq8ikWAM'; // Rachel default
+    return localStorage.getItem('assistant_voice_id') || 'JBFqnCBsd6RMkjVDRZzb'; // George default (supported across all tiers)
   });
 
   const [selectedLanguage, setSelectedLanguageState] = useState<string>(() => {
@@ -185,7 +185,7 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         setSelectedVoiceId(data.voices[0].voice_id);
       }
     } catch (err) {
-      console.warn('[AURA Voice] Could not load voices from backend:', err);
+      console.warn('[Nova Voice] Could not load voices from backend:', err);
     } finally {
       setIsLoadingVoices(false);
     }
@@ -198,7 +198,7 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       const data = await api.getTranscripts();
       setTranscripts(data);
     } catch (err) {
-      console.warn('[AURA Voice] Could not load transcripts from backend:', err);
+      console.warn('[Nova Voice] Could not load transcripts from backend:', err);
     } finally {
       setIsLoadingTranscripts(false);
     }
@@ -250,7 +250,7 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         connectionTimeoutRef.current = null;
       }
 
-      auraDebug('SESSION_END', `Session ended. Triggered by: ${endedBy}${errorMessage ? ` | Error: ${errorMessage}` : ''}`);
+      novaDebug('SESSION_END', `Session ended. Triggered by: ${endedBy}${errorMessage ? ` | Error: ${errorMessage}` : ''}`);
 
       // End SDK connection if still open
       if (conversationRef.current) {
@@ -279,7 +279,7 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
           (Date.now() - sessionStartTimeMsRef.current) / 1000
         );
 
-        auraDebug('TRANSCRIPT', `Saving transcript (${turnsToSave.length} turns, ${durationSecs.toFixed(1)}s)...`);
+        novaDebug('TRANSCRIPT', `Saving transcript (${turnsToSave.length} turns, ${durationSecs.toFixed(1)}s)...`);
 
         try {
           const saveRes = await api.saveTranscript({
@@ -293,10 +293,10 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
             turns: turnsToSave,
           });
 
-          auraDebug('TRANSCRIPT', `Transcript saved successfully as ${saveRes.filename}.`);
+          novaDebug('TRANSCRIPT', `Transcript saved successfully as ${saveRes.filename}.`);
           await reloadTranscripts();
         } catch (saveError) {
-          console.warn('[AURA Voice] Failed to save conversation transcript:', saveError);
+          console.warn('[Nova Voice] Failed to save conversation transcript:', saveError);
         }
       }
     },
@@ -306,12 +306,12 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   // Start real browser voice session (strictly idempotent)
   const startSession = async () => {
     if (isSessionActive || status === 'connecting' || isStartingRef.current) {
-      auraDebug('SESSION_START', `Start ignored: already in active/connecting state (status: ${status}, active: ${isSessionActive})`);
+      novaDebug('SESSION_START', `Start ignored: already in active/connecting state (status: ${status}, active: ${isSessionActive})`);
       return;
     }
     isStartingRef.current = true;
 
-    auraDebug('SESSION_START', 'Start Conversation initiated.');
+    novaDebug('SESSION_START', 'Start Conversation initiated.');
     setSessionError(null);
 
     // Enforce scope boundary: Pipeline Mode is dedicated to CLI in Phase 4
@@ -331,31 +331,15 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
     updateStatus('connecting', 'startSession');
 
-    // 1. Verify and wake browser AudioContext
-    try {
-      if (typeof window !== 'undefined' && (window.AudioContext || (window as any).webkitAudioContext)) {
-        const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
-        const testAudioCtx = new AudioCtx();
-        auraDebug('AUDIO_CONTEXT', `AudioContext state before resume: ${testAudioCtx.state}`);
-        if (testAudioCtx.state === 'suspended') {
-          await testAudioCtx.resume();
-          auraDebug('AUDIO_CONTEXT', `AudioContext state after resume: ${testAudioCtx.state}`);
-        }
-        await testAudioCtx.close();
-      }
-    } catch (audioCtxErr) {
-      auraDebug('AUDIO_CONTEXT', 'AudioContext pre-check warning:', audioCtxErr);
-    }
-
-    // 2. Request and verify browser microphone access
-    auraDebug('MICROPHONE', 'Requesting microphone access...');
+    // 1. Request and verify browser microphone access
+    novaDebug('MICROPHONE', 'Requesting microphone access...');
     try {
       const testStream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      auraDebug('MICROPHONE', 'Microphone permission confirmed.');
+      novaDebug('MICROPHONE', 'Microphone permission confirmed.');
       // Immediately stop the test stream tracks to release microphone hardware for SDK
       testStream.getTracks().forEach((track) => track.stop());
     } catch (err: any) {
-      auraDebug('MICROPHONE', 'Microphone check failed:', err);
+      novaDebug('MICROPHONE', 'Microphone check failed:', err);
       updateStatus('error', 'startSession:mic-failed');
       setIsSessionActive(false);
       isStartingRef.current = false;
@@ -372,7 +356,7 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     }
 
     // 3. Obtain temporary signed URL from backend (never leaks credentials)
-    auraDebug('SIGNED_URL', 'Requesting temporary signed URL from backend...');
+    novaDebug('SIGNED_URL', 'Requesting temporary signed URL from backend...');
     let signedUrl = '';
     let agentId = '';
     try {
@@ -380,13 +364,14 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       signedUrl = signedRes.signed_url;
       agentId = signedRes.agent_id;
       activeAgentIdRef.current = agentId;
-      auraDebug('SIGNED_URL', `Success: signed URL received for agent ${agentId} (length: ${signedUrl.length} chars)`);
+      novaDebug('SIGNED_URL', `Success: signed URL received for agent ${agentId} (length: ${signedUrl.length} chars)`);
     } catch (err: any) {
-      auraDebug('SIGNED_URL', 'Signed URL request failed:', err);
+      novaDebug('SIGNED_URL', 'Signed URL request failed:', err);
       updateStatus('error', 'startSession:signed-url-failed');
       setIsSessionActive(false);
       isStartingRef.current = false;
-      setSessionError(`Authentication failed: ${err.message}`);
+      const detailMsg = err.response?.data?.detail || err.message || 'Voice session initialization failed.';
+      setSessionError(detailMsg);
       return;
     }
 
@@ -395,7 +380,7 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       clearTimeout(connectionTimeoutRef.current);
     }
     connectionTimeoutRef.current = setTimeout(() => {
-      auraDebug('TIMEOUT', 'Connection timed out after 15 seconds without response.');
+      novaDebug('TIMEOUT', 'Connection timed out after 15 seconds without response.');
       updateStatus('error', 'watchdog:timeout');
       setIsSessionActive(false);
       isStartingRef.current = false;
@@ -407,7 +392,7 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     }, 15000);
 
     // 5. Initialize real Conversation session with ElevenLabs client SDK
-    auraDebug('SDK', 'Initializing ElevenLabs Conversation.startSession()...');
+    novaDebug('SDK', 'Initializing ElevenLabs Conversation.startSession()...');
     sessionStartTimeRef.current = new Date().toISOString();
     sessionStartTimeMsRef.current = Date.now();
     isEndingRef.current = false;
@@ -417,7 +402,7 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       const conversation = await Conversation.startSession({
         signedUrl,
         onConnect: ({ conversationId }) => {
-          auraDebug('WS_CONNECT', `WebSocket connected! Conversation ID: ${conversationId}`);
+          novaDebug('WS_CONNECT', `WebSocket connected! Conversation ID: ${conversationId}`);
           if (connectionTimeoutRef.current) {
             clearTimeout(connectionTimeoutRef.current);
             connectionTimeoutRef.current = null;
@@ -428,12 +413,12 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
           updateStatus('listening', 'onConnect');
         },
         onDisconnect: (details: any) => {
-          auraDebug('WS_DISCONNECT', 'SDK onDisconnect event received with payload:', details);
+          novaDebug('WS_DISCONNECT', 'SDK onDisconnect event received with payload:', details);
           const isAbnormalClose = details?.reason === 'error' || (details?.closeCode && details?.closeCode !== 1000);
           if (isAbnormalClose) {
             const code = details?.closeCode ?? 'unknown';
             const reason = details?.closeReason || details?.message || 'Server terminated socket connection.';
-            auraDebug('WS_CLOSE_ABNORMAL', `Abnormal socket closure: code=${code}, reason="${reason}"`);
+            novaDebug('WS_CLOSE_ABNORMAL', `Abnormal socket closure: code=${code}, reason="${reason}"`);
             handleSessionEnded('error', `Voice connection terminated (${code}): ${reason}`);
           } else {
             const endedBy = details?.reason === 'agent' ? 'agent' : 'user';
@@ -441,7 +426,7 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
           }
         },
         onError: (errorMessage: string, info?: any) => {
-          auraDebug('WS_ERROR', `SDK onError event: ${errorMessage}`, info);
+          novaDebug('WS_ERROR', `SDK onError event: ${errorMessage}`, info);
           if (connectionTimeoutRef.current) {
             clearTimeout(connectionTimeoutRef.current);
             connectionTimeoutRef.current = null;
@@ -455,7 +440,7 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
           const speaker = payload.role === 'user' ? 'You' : 'Nova';
           const text = (payload.message || '').trim();
 
-          auraDebug('MESSAGE', `[${speaker}]: "${text}"`);
+          novaDebug('MESSAGE', `[${speaker}]: "${text}"`);
 
           // Filter empty noise or lone punctuation
           if (!text || text === '...') {
@@ -477,7 +462,7 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
           addTurn(newTurn);
         },
         onModeChange: ({ mode: agentMode }) => {
-          auraDebug('MODE_CHANGE', `SDK mode changed to: ${agentMode}`);
+          novaDebug('MODE_CHANGE', `SDK mode changed to: ${agentMode}`);
           if (agentMode === 'speaking') {
             updateStatus('speaking', 'onModeChange');
           } else if (agentMode === 'listening') {
@@ -485,7 +470,7 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
           }
         },
         onStatusChange: ({ status: connStatus }) => {
-          auraDebug('STATUS_CHANGE', `SDK status changed to: ${connStatus}`);
+          novaDebug('STATUS_CHANGE', `SDK status changed to: ${connStatus}`);
           if (connStatus === 'connecting') {
             updateStatus('connecting', 'onStatusChange');
           } else if (connStatus === 'connected') {
@@ -500,7 +485,7 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
           // Disconnections are handled with exact details inside onDisconnect
         },
         onInterruption: () => {
-          auraDebug('INTERRUPTION', 'Barge-in interruption detected. Reverting orb to listening.');
+          novaDebug('INTERRUPTION', 'Barge-in interruption detected. Reverting orb to listening.');
           updateStatus('listening', 'onInterruption');
         },
         overrides: selectedVoiceId
@@ -514,9 +499,9 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
       conversationRef.current = conversation;
       isStartingRef.current = false;
-      auraDebug('SDK', 'startSession returned active conversation instance.');
+      novaDebug('SDK', 'startSession returned active conversation instance.');
     } catch (err: any) {
-      auraDebug('SDK', 'Fatal startSession error:', err);
+      novaDebug('SDK', 'Fatal startSession error:', err);
       if (connectionTimeoutRef.current) {
         clearTimeout(connectionTimeoutRef.current);
         connectionTimeoutRef.current = null;
@@ -524,13 +509,17 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       isStartingRef.current = false;
       updateStatus('error', 'startSession:fatal');
       setIsSessionActive(false);
-      setSessionError(`Could not establish voice connection: ${err.message}`);
+      let cleanErrMsg = err.message || 'Voice connection failed.';
+      if (cleanErrMsg.toLowerCase().includes('not available') || cleanErrMsg.toLowerCase().includes('unexpectedly')) {
+        cleanErrMsg = 'ElevenLabs character quota exhausted (9,923 / 10,000 used on Free Tier). Please update ELEVENLABS_API_KEY in .env.';
+      }
+      setSessionError(cleanErrMsg);
     }
   };
 
   // User-initiated end session
   const endSession = async () => {
-    auraDebug('SESSION_END', 'User requested session end.');
+    novaDebug('SESSION_END', 'User requested session end.');
     await handleSessionEnded('user');
   };
 

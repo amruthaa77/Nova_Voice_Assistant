@@ -1,0 +1,1621 @@
+{
+  "agent_id": "agent_1701m6vfjcehfqfrd118gwmysec0",
+  "agent_name": "Voice Virtual Assistant",
+  "conversation_product": "agent",
+  "status": "done",
+  "user_id": null,
+  "branch_id": "agtbrch_9601m6vfjdg0e2ytzpe0edqnhhgz",
+  "version_id": "agtvrsn_4401m70jej9cefcasxqn3kjnb5kt",
+  "metadata": {
+    "start_time_unix_secs": 1794249761,
+    "accepted_time_unix_secs": 1794249761,
+    "call_duration_secs": 170,
+    "queue_wait_secs": null,
+    "cost": 2067,
+    "deletion_settings": {
+      "deletion_time_unix_secs": null,
+      "deleted_logs_at_time_unix_secs": null,
+      "deleted_audio_at_time_unix_secs": null,
+      "deleted_transcript_at_time_unix_secs": null,
+      "delete_transcript_and_pii": false,
+      "delete_audio": false
+    },
+    "feedback": {
+      "type": null,
+      "overall_score": null,
+      "likes": 0,
+      "dislikes": 0,
+      "rating": null,
+      "comment": null
+    },
+    "authorization_method": "signed_url",
+    "charging": {
+      "dev_discount": false,
+      "is_burst": false,
+      "tier": "free",
+      "llm_usage": {
+        "irreversible_generation": {
+          "model_usage": {
+            "gemini-3.5-flash": {
+              "input": {
+                "tokens": 5747,
+                "price": 0.00948255
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 313,
+                "price": 0.0030987
+              }
+            }
+          },
+          "detailed_model_usage": [
+            {
+              "config": {
+                "model": "gemini-3.5-flash",
+                "service_tier": "standard"
+              },
+              "usage": {
+                "input": {
+                  "tokens": 5747,
+                  "price": 0.00948255
+                },
+                "input_cache_read": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "input_cache_write": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "output_total": {
+                  "tokens": 313,
+                  "price": 0.0030987
+                }
+              }
+            }
+          ]
+        },
+        "initiated_generation": {
+          "model_usage": {
+            "gemini-3.5-flash": {
+              "input": {
+                "tokens": 8695,
+                "price": 0.014346749999999998
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 367,
+                "price": 0.0036332999999999995
+              }
+            }
+          },
+          "detailed_model_usage": [
+            {
+              "config": {
+                "model": "gemini-3.5-flash",
+                "service_tier": "standard"
+              },
+              "usage": {
+                "input": {
+                  "tokens": 8695,
+                  "price": 0.014346749999999998
+                },
+                "input_cache_read": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "input_cache_write": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "output_total": {
+                  "tokens": 367,
+                  "price": 0.0036332999999999995
+                }
+              }
+            }
+          ]
+        }
+      },
+      "llm_price": 0.017980049999999997,
+      "llm_charge": 179,
+      "call_charge": 1888,
+      "platform_charge": 1888,
+      "platform_usage": {
+        "category_usage": {
+          "voice": {
+            "credits": 1888,
+            "price": 0.1888122717415293,
+            "quantity": 2.8321840761229393
+          }
+        }
+      },
+      "platform_price": 0.1888122717415293,
+      "free_minutes_consumed": 0.0,
+      "free_llm_dollars_consumed": 0.0,
+      "tts_usage": {
+        "primary_tts_model": "eleven_v4_turbo",
+        "total_audio_output_seconds": 88.40000000000006,
+        "total_characters": 1429,
+        "per_voice_usage": [
+          {
+            "voice_id": "21m00Tcm4TlvDq8ikWAM",
+            "audio_output_seconds": 88.40000000000006
+          }
+        ]
+      },
+      "asr_usage": {
+        "asr_model": "scribe_realtime",
+        "total_transcription_calls": 275,
+        "total_audio_input_seconds": 46.95999999999974
+      },
+      "analysis": null,
+      "subagent_charge": 0,
+      "voice_surcharge_charge": null,
+      "user_memory": null
+    },
+    "phone_call": null,
+    "batch_call": null,
+    "termination_reason": "end_call tool was called.",
+    "error": null,
+    "warnings": [],
+    "main_language": "en",
+    "rag_usage": null,
+    "text_only": false,
+    "features_usage": {
+      "language_detection": {
+        "enabled": false,
+        "used": false
+      },
+      "transfer_to_agent": {
+        "enabled": false,
+        "used": false
+      },
+      "transfer_to_number": {
+        "enabled": false,
+        "used": false
+      },
+      "multivoice": {
+        "enabled": false,
+        "used": false
+      },
+      "dtmf_tones": {
+        "enabled": false,
+        "used": false
+      },
+      "external_mcp_servers": {
+        "enabled": false,
+        "used": false
+      },
+      "pii_zrm_workspace": false,
+      "pii_zrm_agent": false,
+      "tool_dynamic_variable_updates": {
+        "enabled": false,
+        "used": false
+      },
+      "is_livekit": false,
+      "voicemail_detection": {
+        "enabled": false,
+        "used": false
+      },
+      "dtmf_input": {
+        "enabled": false,
+        "used": false
+      },
+      "workflow": {
+        "enabled": false,
+        "tool_node": {
+          "enabled": false,
+          "used": false
+        },
+        "standalone_agent_node": {
+          "enabled": false,
+          "used": false
+        },
+        "phone_number_node": {
+          "enabled": false,
+          "used": false
+        },
+        "end_node": {
+          "enabled": false,
+          "used": false
+        },
+        "override_agent_node": {
+          "enabled": false,
+          "used": false
+        },
+        "say_node": {
+          "enabled": false,
+          "used": false
+        },
+        "update_state_node": {
+          "enabled": false,
+          "used": false
+        },
+        "subgraph_node": {
+          "enabled": false,
+          "used": false
+        },
+        "transfer_to_genesys_node": {
+          "enabled": false,
+          "used": false
+        },
+        "start_procedure_node": {
+          "enabled": false,
+          "used": false
+        }
+      },
+      "agent_testing": {
+        "enabled": false,
+        "tests_ran_after_last_modification": false,
+        "tests_ran_in_last_7_days": false
+      },
+      "versioning": {
+        "enabled": true,
+        "used": false
+      },
+      "file_input": {
+        "enabled": true,
+        "used": false
+      },
+      "freeform_procedure": {
+        "enabled": false,
+        "used": false
+      },
+      "structured_procedure": {
+        "enabled": false,
+        "used": false
+      }
+    },
+    "eleven_assistant": {
+      "is_eleven_assistant": false
+    },
+    "initiator_id": null,
+    "conversation_initiation_source": "js_sdk",
+    "conversation_initiation_source_version": "1.35.0",
+    "timezone": null,
+    "async_metadata": null,
+    "whatsapp": null,
+    "sms": null,
+    "agent_created_from": "api",
+    "agent_last_updated_from": "api",
+    "stream_state": null,
+    "voice_rewards": [],
+    "avatar_sessions": [],
+    "cost_fiat": 0.20679232174152928
+  },
+  "analysis": {
+    "evaluation_criteria_results": {},
+    "data_collection_results": {},
+    "evaluation_criteria_results_list": [],
+    "data_collection_results_list": [],
+    "call_successful": "success",
+    "call_success_score": null,
+    "transcript_summary": "The user inquired about the agent's name and capabilities compared to ChatGPT, to which the agent explained its role as a concise voice assistant. The user then sought advice on whether building a flatmate-finding app would be beneficial for their resume, which the agent affirmed as an excellent idea. Finally, the user questioned the purpose of building a specialized AI like the agent amidst existing large models, prompting the agent to highlight its value in customization, specific needs, and its concise, direct, and conversational personality for voice interactions.",
+    "call_summary_title": "Agent's Purpose and Personality",
+    "scoped": [],
+    "sentiment_analysis": {
+      "overall_label": "positive",
+      "overall_sentiment_score": 0.4,
+      "overall_frustration_score": 0.0,
+      "min_user_sentiment_score": 0.1,
+      "max_user_frustration_score": 0.0,
+      "num_scored_user_turns": 3
+    },
+    "not_applicable": []
+  },
+  "user_message_count": 6,
+  "agent_message_count": 7,
+  "visited_agents": [
+    {
+      "agent_id": "agent_1701m6vfjcehfqfrd118gwmysec0",
+      "branch_id": "agtbrch_9601m6vfjdg0e2ytzpe0edqnhhgz"
+    }
+  ],
+  "conversation_initiation_client_data": {
+    "conversation_config_override": {
+      "asr": null,
+      "turn": null,
+      "tts": {
+        "model_id": null,
+        "voice_id": "21m00Tcm4TlvDq8ikWAM",
+        "supported_voices": null,
+        "stability": null,
+        "speed": null,
+        "similarity_boost": null,
+        "clone_strength": null,
+        "pronunciation_dictionary_locators": null
+      },
+      "conversation": {
+        "text_only": null,
+        "max_duration_seconds": null
+      },
+      "agent": {
+        "first_message": null,
+        "language": null,
+        "max_conversation_duration_message": null,
+        "silence_end_call_message": null,
+        "prompt": null
+      }
+    },
+    "custom_llm_extra_body": {},
+    "user_id": null,
+    "source_info": {
+      "source": "js_sdk",
+      "version": "1.35.0"
+    },
+    "branch_id": null,
+    "environment": null,
+    "starting_workflow_node_id": null,
+    "experiments": [],
+    "procedure_ids": null,
+    "start_procedure_ids": null,
+    "dynamic_variables": {
+      "system__agent_id": "agent_1701m6vfjcehfqfrd118gwmysec0",
+      "system__agent_turns": 7,
+      "system__current_agent_turns": 7,
+      "system__current_subagent_turns": 7,
+      "system__current_agent_id": "agent_1701m6vfjcehfqfrd118gwmysec0",
+      "system__conversation_id": "conv_6501m70sx8c1e00t56x3n8nrg4jr",
+      "system__call_duration_secs": 169,
+      "system__time_utc": "2026-11-09T18:45:31.108227+00:00",
+      "system__timezone": null,
+      "system__time": "Monday, 18:45 09 November 2026",
+      "system__time_date": "Monday, 09 November 2026",
+      "system__time_hour": 18,
+      "system__time_minute": 45,
+      "system__time_second": 31,
+      "system__is_text_only": false,
+      "system__channel": "js_sdk",
+      "system__caller_id": null,
+      "system__called_number": null,
+      "system__call_sid": null,
+      "system__call_id": null,
+      "system__conversation_history": "{\"x-elevenlabs-history\": true, \"entries\": [{\"role\": \"agent\", \"message\": \"Hello! I am your voice assistant. How can I help you today?\"}, {\"role\": \"user\", \"message\": \"What is your name?\"}, {\"role\": \"agent\", \"message\": \"I do not have a personal name, but you can think of me as your friendly voice assistant. How can I help you today?\"}, {\"role\": \"user\", \"message\": \"Can you do all the things that ChatGPT does?\"}, {\"role\": \"agent\", \"message\": \"I can help with many of the same things, like answering questions, brainstorming, and having a conversation. However, I am designed to be a concise voice assistant, so my responses will be much shorter and more direct. What is on your mind today?\"}, {\"role\": \"user\", \"message\": \"Okay. So, I'm planning to build an app which revolves around finding a flatmate. Do you think it's a good idea for my resume?\"}, {\"role\": \"agent\", \"message\": \"[excited] Yes, that is a fantastic idea for your resume! It demonstrates your ability to solve a real-world problem and work with database management, user authentication, and matching algorithms. Plus, it shows employers that you can build practical, user-focused applications.\"}, {\"role\": \"user\", \"message\": \"Okay. Now, I've built you, right? So you're also one of my creations, and I have one major question. There are already so many applications like ChatGPT, Claude, et cetera, right? What is the point of building you? Do you have an answer for that?\"}, {\"role\": \"agent\", \"message\": \"[happy] That is a great question! While large models like ChatGPT are great for general tasks, building a specialized assistant like me allows you to customize the experience for specific needs, integrate unique data, and control the exact voice and personality. It shows you know how to take powerful technology and tailor it to create a unique, user-friendly solution.\"}, {\"role\": \"user\", \"message\": \"So, what is your personality? How do you stand out from them?\"}, {\"role\": \"agent\", \"message\": \"I stand out by being incredibly concise, direct, and conversational, designed specifically for natural voice interactions. Unlike larger models that might give long, detailed text, I focus on keeping things short, friendly, and easy to listen to. I am here to get straight to the point and help you quickly.\"}, {\"role\": \"user\", \"message\": \"Okay, thank you. Goodbye.\"}, {\"role\": \"agent\", \"message\": \"You are very welcome, goodbye and have a wonderful day!\"}, {\"role\": \"agent\", \"tool_requests\": [{\"tool_name\": \"end_call\", \"params_as_json\": {\"system__message_to_speak\": \"You are very welcome, goodbye and have a wonderful day!\", \"reason\": \"The user said goodbye and indicated they are done with the conversation.\"}}]}, {\"role\": \"agent\", \"tool_results\": [{\"tool_name\": \"end_call\", \"result_value\": \"{\\\"result_type\\\":\\\"end_call_success\\\",\\\"status\\\":\\\"success\\\",\\\"reason\\\":\\\"The user said goodbye and indicated they are done with the conversation.\\\",\\\"message\\\":null}\"}]}]}",
+      "system__user_id": null,
+      "system__initiator_id": null,
+      "system__environment": "production",
+      "system__agents_user_id": null,
+      "system__user_verification_level": null
+    },
+    "tool_mock_config": {
+      "mocking_strategy": "none",
+      "fallback_strategy": "raise_error",
+      "mocked_tool_names": []
+    },
+    "tool_mock_overrides": {}
+  },
+  "environment": "production",
+  "experiment_assignments": null,
+  "hiding_reason": null,
+  "smb_metadata": null,
+  "conversation_id": "conv_6501m70sx8c1e00t56x3n8nrg4jr",
+  "has_audio": true,
+  "has_user_audio": true,
+  "has_response_audio": true,
+  "has_auxiliary_audio": false,
+  "transcript": [
+    {
+      "role": "agent",
+      "agent_metadata": {
+        "agent_id": "agent_1701m6vfjcehfqfrd118gwmysec0",
+        "branch_id": "agtbrch_9601m6vfjdg0e2ytzpe0edqnhhgz",
+        "workflow_node_id": null,
+        "version_id": "agtvrsn_4401m70jej9cefcasxqn3kjnb5kt"
+      },
+      "message": "Hello! I am your voice assistant. How can I help you today?",
+      "multivoice_message": null,
+      "tool_calls": [],
+      "tool_results": [],
+      "feedback": null,
+      "llm_override": null,
+      "producing_llm": "gemini-3.5-flash",
+      "time_in_call_secs": 0,
+      "conversation_turn_metrics": {
+        "metrics": {
+          "convai_tts_service_ttfb": {
+            "elapsed_time": 0.07295585609972477
+          },
+          "convai_ttf_audio_since_silence": {
+            "elapsed_time": 0.07849337719380856
+          },
+          "convai_turn_silence_before_initiation": {
+            "elapsed_time": 0.0
+          }
+        },
+        "convai_asr_provider": null,
+        "convai_tts_model": "eleven_v4_turbo",
+        "convai_tts_cascade": null,
+        "voice_id": "eLDc7xhWxG2FElT3kUTj"
+      },
+      "rag_retrieval_info": null,
+      "llm_usage": null,
+      "interrupted": false,
+      "ignored_as_backchannel": false,
+      "platform_event": null,
+      "original_message": null,
+      "reasoning": [],
+      "source_medium": null,
+      "source_event_id": 1,
+      "used_static_kb_document_ids": [],
+      "analysis": null,
+      "user_identifier": null,
+      "id": null,
+      "created_at_unix_ms": null,
+      "compaction": null,
+      "triggered_guardrails": [],
+      "file_input": null,
+      "file_inputs": [],
+      "contextual_update_info": null,
+      "config_snapshot_id": null,
+      "origin": null,
+      "reasoned": false
+    },
+    {
+      "role": "user",
+      "agent_metadata": null,
+      "message": "What is your name?",
+      "multivoice_message": null,
+      "tool_calls": [],
+      "tool_results": [],
+      "feedback": null,
+      "llm_override": null,
+      "producing_llm": null,
+      "time_in_call_secs": 10,
+      "conversation_turn_metrics": {
+        "metrics": {
+          "convai_asr_trailing_service_latency": {
+            "elapsed_time": 0.06720654852688313
+          }
+        },
+        "convai_asr_provider": "Scribe v2 Realtime",
+        "convai_tts_model": null,
+        "convai_tts_cascade": null,
+        "voice_id": null
+      },
+      "rag_retrieval_info": null,
+      "llm_usage": null,
+      "interrupted": false,
+      "ignored_as_backchannel": false,
+      "platform_event": null,
+      "original_message": null,
+      "reasoning": [],
+      "source_medium": "audio",
+      "source_event_id": 71,
+      "used_static_kb_document_ids": [],
+      "analysis": null,
+      "user_identifier": null,
+      "id": null,
+      "created_at_unix_ms": null,
+      "compaction": null,
+      "triggered_guardrails": [],
+      "file_input": null,
+      "file_inputs": [],
+      "contextual_update_info": null,
+      "config_snapshot_id": null,
+      "origin": null,
+      "reasoned": false
+    },
+    {
+      "role": "agent",
+      "agent_metadata": {
+        "agent_id": "agent_1701m6vfjcehfqfrd118gwmysec0",
+        "branch_id": "agtbrch_9601m6vfjdg0e2ytzpe0edqnhhgz",
+        "workflow_node_id": null,
+        "version_id": "agtvrsn_4401m70jej9cefcasxqn3kjnb5kt"
+      },
+      "message": "I do not have a personal name, but you can think of me as your friendly voice assistant. How can I help you today?",
+      "multivoice_message": null,
+      "tool_calls": [],
+      "tool_results": [],
+      "feedback": null,
+      "llm_override": null,
+      "producing_llm": "gemini-3.5-flash",
+      "time_in_call_secs": 12,
+      "conversation_turn_metrics": {
+        "metrics": {
+          "convai_llm_service_ttf_sentence": {
+            "elapsed_time": 0.9192537777125835
+          },
+          "convai_llm_service_ttfb": {
+            "elapsed_time": 0.9189098877832294
+          },
+          "convai_llm_service_tt_last_sentence": {
+            "elapsed_time": 0.9544361457228661
+          },
+          "convai_tts_service_ttfb": {
+            "elapsed_time": 0.0709856366738677
+          },
+          "convai_ttf_audio_since_silence": {
+            "elapsed_time": 1.328501601651311
+          },
+          "convai_turn_silence_before_initiation": {
+            "elapsed_time": 0.256
+          },
+          "convai_turn_asr_latency": {
+            "elapsed_time": 0.06720654852688313
+          },
+          "convai_turn_asr_excess": {
+            "elapsed_time": 0.06720654852688313
+          }
+        },
+        "convai_asr_provider": null,
+        "convai_tts_model": "eleven_v4_turbo",
+        "convai_tts_cascade": null,
+        "voice_id": "eLDc7xhWxG2FElT3kUTj"
+      },
+      "rag_retrieval_info": null,
+      "llm_usage": {
+        "model_usage": {
+          "gemini-3.5-flash": {
+            "input": {
+              "tokens": 774,
+              "price": 0.0012771
+            },
+            "input_cache_read": {
+              "tokens": 0,
+              "price": 0.0
+            },
+            "input_cache_write": {
+              "tokens": 0,
+              "price": 0.0
+            },
+            "output_total": {
+              "tokens": 27,
+              "price": 0.0002673
+            }
+          }
+        },
+        "detailed_model_usage": [
+          {
+            "config": {
+              "model": "gemini-3.5-flash",
+              "service_tier": "standard"
+            },
+            "usage": {
+              "input": {
+                "tokens": 774,
+                "price": 0.0012771
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 27,
+                "price": 0.0002673
+              }
+            }
+          }
+        ]
+      },
+      "interrupted": false,
+      "ignored_as_backchannel": false,
+      "platform_event": null,
+      "original_message": null,
+      "reasoning": [
+        {
+          "summary": null,
+          "provider_redact": false
+        }
+      ],
+      "source_medium": null,
+      "source_event_id": 71,
+      "used_static_kb_document_ids": [],
+      "analysis": null,
+      "user_identifier": null,
+      "id": null,
+      "created_at_unix_ms": null,
+      "compaction": null,
+      "triggered_guardrails": [],
+      "file_input": null,
+      "file_inputs": [],
+      "contextual_update_info": null,
+      "config_snapshot_id": null,
+      "origin": null,
+      "reasoned": true
+    },
+    {
+      "role": "user",
+      "agent_metadata": null,
+      "message": "Can you do all the things that ChatGPT does?",
+      "multivoice_message": null,
+      "tool_calls": [],
+      "tool_results": [],
+      "feedback": null,
+      "llm_override": null,
+      "producing_llm": null,
+      "time_in_call_secs": 22,
+      "conversation_turn_metrics": {
+        "metrics": {
+          "convai_asr_trailing_service_latency": {
+            "elapsed_time": 0.0638670576736331
+          }
+        },
+        "convai_asr_provider": "Scribe v2 Realtime",
+        "convai_tts_model": null,
+        "convai_tts_cascade": null,
+        "voice_id": null
+      },
+      "rag_retrieval_info": null,
+      "llm_usage": null,
+      "interrupted": false,
+      "ignored_as_backchannel": false,
+      "platform_event": null,
+      "original_message": null,
+      "reasoning": [],
+      "source_medium": "audio",
+      "source_event_id": 160,
+      "used_static_kb_document_ids": [],
+      "analysis": null,
+      "user_identifier": null,
+      "id": null,
+      "created_at_unix_ms": null,
+      "compaction": null,
+      "triggered_guardrails": [],
+      "file_input": null,
+      "file_inputs": [],
+      "contextual_update_info": null,
+      "config_snapshot_id": null,
+      "origin": null,
+      "reasoned": false
+    },
+    {
+      "role": "agent",
+      "agent_metadata": {
+        "agent_id": "agent_1701m6vfjcehfqfrd118gwmysec0",
+        "branch_id": "agtbrch_9601m6vfjdg0e2ytzpe0edqnhhgz",
+        "workflow_node_id": null,
+        "version_id": "agtvrsn_4401m70jej9cefcasxqn3kjnb5kt"
+      },
+      "message": "I can help with many of the same things, like answering questions, brainstorming, and having a conversation. However, I am designed to be a concise voice assistant, so my responses will be much shorter and more direct. What is on your mind today?",
+      "multivoice_message": null,
+      "tool_calls": [],
+      "tool_results": [],
+      "feedback": null,
+      "llm_override": null,
+      "producing_llm": "gemini-3.5-flash",
+      "time_in_call_secs": 26,
+      "conversation_turn_metrics": {
+        "metrics": {
+          "convai_llm_service_ttf_sentence": {
+            "elapsed_time": 0.7646837728098035
+          },
+          "convai_llm_service_ttfb": {
+            "elapsed_time": 0.6898318752646446
+          },
+          "convai_llm_service_tt_last_sentence": {
+            "elapsed_time": 0.9041343377903104
+          },
+          "convai_tts_service_ttfb": {
+            "elapsed_time": 0.08631993643939495
+          },
+          "convai_ttf_audio_since_silence": {
+            "elapsed_time": 1.217571557790041
+          },
+          "convai_turn_silence_before_initiation": {
+            "elapsed_time": 0.288
+          },
+          "convai_turn_asr_latency": {
+            "elapsed_time": 0.0638670576736331
+          },
+          "convai_turn_asr_excess": {
+            "elapsed_time": 0.0638670576736331
+          }
+        },
+        "convai_asr_provider": null,
+        "convai_tts_model": "eleven_v4_turbo",
+        "convai_tts_cascade": null,
+        "voice_id": "eLDc7xhWxG2FElT3kUTj"
+      },
+      "rag_retrieval_info": null,
+      "llm_usage": {
+        "model_usage": {
+          "gemini-3.5-flash": {
+            "input": {
+              "tokens": 811,
+              "price": 0.0013381499999999998
+            },
+            "input_cache_read": {
+              "tokens": 0,
+              "price": 0.0
+            },
+            "input_cache_write": {
+              "tokens": 0,
+              "price": 0.0
+            },
+            "output_total": {
+              "tokens": 51,
+              "price": 0.0005049000000000001
+            }
+          }
+        },
+        "detailed_model_usage": [
+          {
+            "config": {
+              "model": "gemini-3.5-flash",
+              "service_tier": "standard"
+            },
+            "usage": {
+              "input": {
+                "tokens": 811,
+                "price": 0.0013381499999999998
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 51,
+                "price": 0.0005049000000000001
+              }
+            }
+          }
+        ]
+      },
+      "interrupted": false,
+      "ignored_as_backchannel": false,
+      "platform_event": null,
+      "original_message": null,
+      "reasoning": [
+        {
+          "summary": null,
+          "provider_redact": false
+        }
+      ],
+      "source_medium": null,
+      "source_event_id": 160,
+      "used_static_kb_document_ids": [],
+      "analysis": null,
+      "user_identifier": null,
+      "id": null,
+      "created_at_unix_ms": null,
+      "compaction": null,
+      "triggered_guardrails": [],
+      "file_input": null,
+      "file_inputs": [],
+      "contextual_update_info": null,
+      "config_snapshot_id": null,
+      "origin": null,
+      "reasoned": true
+    },
+    {
+      "role": "user",
+      "agent_metadata": null,
+      "message": "Okay. So, I'm planning to build an app which revolves around finding a flatmate. Do you think it's a good idea for my resume?",
+      "multivoice_message": null,
+      "tool_calls": [],
+      "tool_results": [],
+      "feedback": null,
+      "llm_override": null,
+      "producing_llm": null,
+      "time_in_call_secs": 46,
+      "conversation_turn_metrics": {
+        "metrics": {
+          "convai_asr_trailing_service_latency": {
+            "elapsed_time": 0.056736407801508904
+          }
+        },
+        "convai_asr_provider": "Scribe v2 Realtime",
+        "convai_tts_model": null,
+        "convai_tts_cascade": null,
+        "voice_id": null
+      },
+      "rag_retrieval_info": null,
+      "llm_usage": null,
+      "interrupted": false,
+      "ignored_as_backchannel": false,
+      "platform_event": null,
+      "original_message": null,
+      "reasoning": [],
+      "source_medium": "audio",
+      "source_event_id": 344,
+      "used_static_kb_document_ids": [],
+      "analysis": {
+        "user_sentiment_score": 0.2,
+        "user_frustration_score": 0.0
+      },
+      "user_identifier": null,
+      "id": null,
+      "created_at_unix_ms": null,
+      "compaction": null,
+      "triggered_guardrails": [],
+      "file_input": null,
+      "file_inputs": [],
+      "contextual_update_info": null,
+      "config_snapshot_id": null,
+      "origin": null,
+      "reasoned": false
+    },
+    {
+      "role": "agent",
+      "agent_metadata": {
+        "agent_id": "agent_1701m6vfjcehfqfrd118gwmysec0",
+        "branch_id": "agtbrch_9601m6vfjdg0e2ytzpe0edqnhhgz",
+        "workflow_node_id": null,
+        "version_id": "agtvrsn_4401m70jej9cefcasxqn3kjnb5kt"
+      },
+      "message": "[excited] Yes, that is a fantastic idea for your resume! It demonstrates your ability to solve a real-world problem and work with database management, user authentication, and matching algorithms. Plus, it shows employers that you can build practical, user-focused applications.",
+      "multivoice_message": null,
+      "tool_calls": [],
+      "tool_results": [],
+      "feedback": null,
+      "llm_override": null,
+      "producing_llm": "gemini-3.5-flash",
+      "time_in_call_secs": 56,
+      "conversation_turn_metrics": {
+        "metrics": {
+          "convai_llm_service_ttf_sentence": {
+            "elapsed_time": 1.136651829816401
+          },
+          "convai_llm_service_ttfb": {
+            "elapsed_time": 1.1363344695419073
+          },
+          "convai_llm_service_tt_last_sentence": {
+            "elapsed_time": 1.4235100895166397
+          },
+          "convai_tts_service_ttfb": {
+            "elapsed_time": 0.07417025696486235
+          },
+          "convai_ttf_audio_since_silence": {
+            "elapsed_time": 1.5091654132828116
+          },
+          "convai_turn_silence_before_initiation": {
+            "elapsed_time": 0.224
+          },
+          "convai_turn_asr_latency": {
+            "elapsed_time": 0.056736407801508904
+          },
+          "convai_turn_asr_excess": {
+            "elapsed_time": 0.056736407801508904
+          }
+        },
+        "convai_asr_provider": null,
+        "convai_tts_model": "eleven_v4_turbo",
+        "convai_tts_cascade": null,
+        "voice_id": "eLDc7xhWxG2FElT3kUTj"
+      },
+      "rag_retrieval_info": null,
+      "llm_usage": {
+        "model_usage": {
+          "gemini-3.5-flash": {
+            "input": {
+              "tokens": 895,
+              "price": 0.00147675
+            },
+            "input_cache_read": {
+              "tokens": 0,
+              "price": 0.0
+            },
+            "input_cache_write": {
+              "tokens": 0,
+              "price": 0.0
+            },
+            "output_total": {
+              "tokens": 54,
+              "price": 0.0005346
+            }
+          }
+        },
+        "detailed_model_usage": [
+          {
+            "config": {
+              "model": "gemini-3.5-flash",
+              "service_tier": "standard"
+            },
+            "usage": {
+              "input": {
+                "tokens": 895,
+                "price": 0.00147675
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 54,
+                "price": 0.0005346
+              }
+            }
+          }
+        ]
+      },
+      "interrupted": false,
+      "ignored_as_backchannel": false,
+      "platform_event": null,
+      "original_message": null,
+      "reasoning": [
+        {
+          "summary": null,
+          "provider_redact": false
+        }
+      ],
+      "source_medium": null,
+      "source_event_id": 344,
+      "used_static_kb_document_ids": [],
+      "analysis": null,
+      "user_identifier": null,
+      "id": null,
+      "created_at_unix_ms": null,
+      "compaction": null,
+      "triggered_guardrails": [],
+      "file_input": null,
+      "file_inputs": [],
+      "contextual_update_info": null,
+      "config_snapshot_id": null,
+      "origin": null,
+      "reasoned": true
+    },
+    {
+      "role": "user",
+      "agent_metadata": null,
+      "message": "Okay. Now, I've built you, right? So you're also one of my creations, and I have one major question. There are already so many applications like ChatGPT, Claude, et cetera, right? What is the point of building you? Do you have an answer for that?",
+      "multivoice_message": null,
+      "tool_calls": [],
+      "tool_results": [],
+      "feedback": null,
+      "llm_override": null,
+      "producing_llm": null,
+      "time_in_call_secs": 79,
+      "conversation_turn_metrics": {
+        "metrics": {
+          "convai_asr_trailing_service_latency": {
+            "elapsed_time": 0.05620583798736334
+          }
+        },
+        "convai_asr_provider": "Scribe v2 Realtime",
+        "convai_tts_model": null,
+        "convai_tts_cascade": null,
+        "voice_id": null
+      },
+      "rag_retrieval_info": null,
+      "llm_usage": null,
+      "interrupted": false,
+      "ignored_as_backchannel": false,
+      "platform_event": null,
+      "original_message": null,
+      "reasoning": [],
+      "source_medium": "audio",
+      "source_event_id": 594,
+      "used_static_kb_document_ids": [],
+      "analysis": {
+        "user_sentiment_score": 0.1,
+        "user_frustration_score": 0.0
+      },
+      "user_identifier": null,
+      "id": null,
+      "created_at_unix_ms": null,
+      "compaction": null,
+      "triggered_guardrails": [],
+      "file_input": null,
+      "file_inputs": [],
+      "contextual_update_info": null,
+      "config_snapshot_id": null,
+      "origin": null,
+      "reasoned": false
+    },
+    {
+      "role": "agent",
+      "agent_metadata": {
+        "agent_id": "agent_1701m6vfjcehfqfrd118gwmysec0",
+        "branch_id": "agtbrch_9601m6vfjdg0e2ytzpe0edqnhhgz",
+        "workflow_node_id": null,
+        "version_id": "agtvrsn_4401m70jej9cefcasxqn3kjnb5kt"
+      },
+      "message": "[happy] That is a great question! While large models like ChatGPT are great for general tasks, building a specialized assistant like me allows you to customize the experience for specific needs, integrate unique data, and control the exact voice and personality. It shows you know how to take powerful technology and tailor it to create a unique, user-friendly solution.",
+      "multivoice_message": null,
+      "tool_calls": [],
+      "tool_results": [],
+      "feedback": null,
+      "llm_override": null,
+      "producing_llm": "gemini-3.5-flash",
+      "time_in_call_secs": 96,
+      "conversation_turn_metrics": {
+        "metrics": {
+          "convai_llm_service_ttf_sentence": {
+            "elapsed_time": 0.943430945277214
+          },
+          "convai_llm_service_ttfb": {
+            "elapsed_time": 0.9430874260142446
+          },
+          "convai_llm_service_tt_last_sentence": {
+            "elapsed_time": 1.3682851707562804
+          },
+          "convai_tts_service_ttfb": {
+            "elapsed_time": 0.07271954696625471
+          },
+          "convai_ttf_audio_since_silence": {
+            "elapsed_time": 1.2857725696712732
+          },
+          "convai_turn_silence_before_initiation": {
+            "elapsed_time": 0.192
+          },
+          "convai_turn_asr_latency": {
+            "elapsed_time": 0.05620583798736334
+          },
+          "convai_turn_asr_excess": {
+            "elapsed_time": 0.05620583798736334
+          }
+        },
+        "convai_asr_provider": null,
+        "convai_tts_model": "eleven_v4_turbo",
+        "convai_tts_cascade": null,
+        "voice_id": "eLDc7xhWxG2FElT3kUTj"
+      },
+      "rag_retrieval_info": null,
+      "llm_usage": {
+        "model_usage": {
+          "gemini-3.5-flash": {
+            "input": {
+              "tokens": 1010,
+              "price": 0.0016665
+            },
+            "input_cache_read": {
+              "tokens": 0,
+              "price": 0.0
+            },
+            "input_cache_write": {
+              "tokens": 0,
+              "price": 0.0
+            },
+            "output_total": {
+              "tokens": 70,
+              "price": 0.000693
+            }
+          }
+        },
+        "detailed_model_usage": [
+          {
+            "config": {
+              "model": "gemini-3.5-flash",
+              "service_tier": "standard"
+            },
+            "usage": {
+              "input": {
+                "tokens": 1010,
+                "price": 0.0016665
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 70,
+                "price": 0.000693
+              }
+            }
+          }
+        ]
+      },
+      "interrupted": false,
+      "ignored_as_backchannel": false,
+      "platform_event": null,
+      "original_message": null,
+      "reasoning": [
+        {
+          "summary": null,
+          "provider_redact": false
+        }
+      ],
+      "source_medium": null,
+      "source_event_id": 594,
+      "used_static_kb_document_ids": [],
+      "analysis": null,
+      "user_identifier": null,
+      "id": null,
+      "created_at_unix_ms": null,
+      "compaction": null,
+      "triggered_guardrails": [],
+      "file_input": null,
+      "file_inputs": [],
+      "contextual_update_info": null,
+      "config_snapshot_id": null,
+      "origin": null,
+      "reasoned": true
+    },
+    {
+      "role": "user",
+      "agent_metadata": null,
+      "message": "So, what is your personality? How do you stand out from them?",
+      "multivoice_message": null,
+      "tool_calls": [],
+      "tool_results": [],
+      "feedback": null,
+      "llm_override": null,
+      "producing_llm": null,
+      "time_in_call_secs": 125,
+      "conversation_turn_metrics": {
+        "metrics": {
+          "convai_asr_trailing_service_latency": {
+            "elapsed_time": 0.05069472827017307
+          }
+        },
+        "convai_asr_provider": "Scribe v2 Realtime",
+        "convai_tts_model": null,
+        "convai_tts_cascade": null,
+        "voice_id": null
+      },
+      "rag_retrieval_info": null,
+      "llm_usage": null,
+      "interrupted": false,
+      "ignored_as_backchannel": false,
+      "platform_event": null,
+      "original_message": null,
+      "reasoning": [],
+      "source_medium": "audio",
+      "source_event_id": 817,
+      "used_static_kb_document_ids": [],
+      "analysis": {
+        "user_sentiment_score": 0.1,
+        "user_frustration_score": 0.0
+      },
+      "user_identifier": null,
+      "id": null,
+      "created_at_unix_ms": null,
+      "compaction": null,
+      "triggered_guardrails": [],
+      "file_input": null,
+      "file_inputs": [],
+      "contextual_update_info": null,
+      "config_snapshot_id": null,
+      "origin": null,
+      "reasoned": false
+    },
+    {
+      "role": "agent",
+      "agent_metadata": {
+        "agent_id": "agent_1701m6vfjcehfqfrd118gwmysec0",
+        "branch_id": "agtbrch_9601m6vfjdg0e2ytzpe0edqnhhgz",
+        "workflow_node_id": null,
+        "version_id": "agtvrsn_4401m70jej9cefcasxqn3kjnb5kt"
+      },
+      "message": "I stand out by being incredibly concise, direct, and conversational, designed specifically for natural voice interactions. Unlike larger models that might give long, detailed text, I focus on keeping things short, friendly, and easy to listen to. I am here to get straight to the point and help you quickly.",
+      "multivoice_message": null,
+      "tool_calls": [],
+      "tool_results": [],
+      "feedback": null,
+      "llm_override": null,
+      "producing_llm": "gemini-3.5-flash",
+      "time_in_call_secs": 132,
+      "conversation_turn_metrics": {
+        "metrics": {
+          "convai_llm_service_ttf_sentence": {
+            "elapsed_time": 0.9242244567722082
+          },
+          "convai_llm_service_ttfb": {
+            "elapsed_time": 0.9239105470478535
+          },
+          "convai_llm_service_tt_last_sentence": {
+            "elapsed_time": 1.2860047528520226
+          },
+          "convai_tts_service_ttfb": {
+            "elapsed_time": 0.07895404752343893
+          },
+          "convai_ttf_audio_since_silence": {
+            "elapsed_time": 1.29446231161803
+          },
+          "convai_turn_silence_before_initiation": {
+            "elapsed_time": 0.224
+          },
+          "convai_turn_asr_latency": {
+            "elapsed_time": 0.05069472827017307
+          },
+          "convai_turn_asr_excess": {
+            "elapsed_time": 0.05069472827017307
+          }
+        },
+        "convai_asr_provider": null,
+        "convai_tts_model": "eleven_v4_turbo",
+        "convai_tts_cascade": null,
+        "voice_id": "eLDc7xhWxG2FElT3kUTj"
+      },
+      "rag_retrieval_info": null,
+      "llm_usage": {
+        "model_usage": {
+          "gemini-3.5-flash": {
+            "input": {
+              "tokens": 1095,
+              "price": 0.00180675
+            },
+            "input_cache_read": {
+              "tokens": 0,
+              "price": 0.0
+            },
+            "input_cache_write": {
+              "tokens": 0,
+              "price": 0.0
+            },
+            "output_total": {
+              "tokens": 60,
+              "price": 0.000594
+            }
+          }
+        },
+        "detailed_model_usage": [
+          {
+            "config": {
+              "model": "gemini-3.5-flash",
+              "service_tier": "standard"
+            },
+            "usage": {
+              "input": {
+                "tokens": 1095,
+                "price": 0.00180675
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 60,
+                "price": 0.000594
+              }
+            }
+          }
+        ]
+      },
+      "interrupted": false,
+      "ignored_as_backchannel": false,
+      "platform_event": null,
+      "original_message": null,
+      "reasoning": [
+        {
+          "summary": null,
+          "provider_redact": false
+        }
+      ],
+      "source_medium": null,
+      "source_event_id": 817,
+      "used_static_kb_document_ids": [],
+      "analysis": null,
+      "user_identifier": null,
+      "id": null,
+      "created_at_unix_ms": null,
+      "compaction": null,
+      "triggered_guardrails": [],
+      "file_input": null,
+      "file_inputs": [],
+      "contextual_update_info": null,
+      "config_snapshot_id": null,
+      "origin": null,
+      "reasoned": true
+    },
+    {
+      "role": "user",
+      "agent_metadata": null,
+      "message": "Okay, thank you. Goodbye.",
+      "multivoice_message": null,
+      "tool_calls": [],
+      "tool_results": [],
+      "feedback": null,
+      "llm_override": null,
+      "producing_llm": null,
+      "time_in_call_secs": 157,
+      "conversation_turn_metrics": {
+        "metrics": {
+          "convai_asr_trailing_service_latency": {
+            "elapsed_time": 0.04045489802956581
+          }
+        },
+        "convai_asr_provider": "Scribe v2 Realtime",
+        "convai_tts_model": null,
+        "convai_tts_cascade": null,
+        "voice_id": null
+      },
+      "rag_retrieval_info": null,
+      "llm_usage": null,
+      "interrupted": false,
+      "ignored_as_backchannel": false,
+      "platform_event": null,
+      "original_message": null,
+      "reasoning": [],
+      "source_medium": "audio",
+      "source_event_id": 985,
+      "used_static_kb_document_ids": [],
+      "analysis": null,
+      "user_identifier": null,
+      "id": null,
+      "created_at_unix_ms": null,
+      "compaction": null,
+      "triggered_guardrails": [],
+      "file_input": null,
+      "file_inputs": [],
+      "contextual_update_info": null,
+      "config_snapshot_id": null,
+      "origin": null,
+      "reasoned": false
+    },
+    {
+      "role": "agent",
+      "agent_metadata": {
+        "agent_id": "agent_1701m6vfjcehfqfrd118gwmysec0",
+        "branch_id": "agtbrch_9601m6vfjdg0e2ytzpe0edqnhhgz",
+        "workflow_node_id": null,
+        "version_id": "agtvrsn_4401m70jej9cefcasxqn3kjnb5kt"
+      },
+      "message": "You are very welcome, goodbye and have a wonderful day!",
+      "multivoice_message": null,
+      "tool_calls": [],
+      "tool_results": [],
+      "feedback": null,
+      "llm_override": null,
+      "producing_llm": "gemini-3.5-flash",
+      "time_in_call_secs": 160,
+      "conversation_turn_metrics": {
+        "metrics": {
+          "convai_llm_service_ttfb": {
+            "elapsed_time": 1.1978508364409208
+          },
+          "convai_llm_tool_request_generation_latency": {
+            "elapsed_time": 1.1985719567164779
+          },
+          "convai_tts_service_ttfb": {
+            "elapsed_time": 0.08619281649589539
+          },
+          "convai_ttf_audio_since_silence": {
+            "elapsed_time": 1.5704816706255078
+          },
+          "convai_turn_silence_before_initiation": {
+            "elapsed_time": 0.224
+          },
+          "convai_turn_asr_latency": {
+            "elapsed_time": 0.04045489802956581
+          },
+          "convai_turn_asr_excess": {
+            "elapsed_time": 0.04045489802956581
+          }
+        },
+        "convai_asr_provider": null,
+        "convai_tts_model": "eleven_v4_turbo",
+        "convai_tts_cascade": null,
+        "voice_id": "eLDc7xhWxG2FElT3kUTj"
+      },
+      "rag_retrieval_info": null,
+      "llm_usage": null,
+      "interrupted": false,
+      "ignored_as_backchannel": false,
+      "platform_event": null,
+      "original_message": null,
+      "reasoning": [],
+      "source_medium": null,
+      "source_event_id": 985,
+      "used_static_kb_document_ids": [],
+      "analysis": null,
+      "user_identifier": null,
+      "id": null,
+      "created_at_unix_ms": null,
+      "compaction": null,
+      "triggered_guardrails": [],
+      "file_input": null,
+      "file_inputs": [],
+      "contextual_update_info": null,
+      "config_snapshot_id": null,
+      "origin": null,
+      "reasoned": false
+    },
+    {
+      "role": "agent",
+      "agent_metadata": {
+        "agent_id": "agent_1701m6vfjcehfqfrd118gwmysec0",
+        "branch_id": "agtbrch_9601m6vfjdg0e2ytzpe0edqnhhgz",
+        "workflow_node_id": null,
+        "version_id": "agtvrsn_4401m70jej9cefcasxqn3kjnb5kt"
+      },
+      "message": null,
+      "multivoice_message": null,
+      "tool_calls": [
+        {
+          "type": "system",
+          "request_id": "end_call_42a3a2d08b5e4ecc89a4a3684aff3ef9",
+          "tool_name": "end_call",
+          "tool_id": null,
+          "params_as_json": "{\"system__message_to_speak\": \"You are very welcome, goodbye and have a wonderful day!\", \"reason\": \"The user said goodbye and indicated they are done with the conversation.\"}",
+          "tool_has_been_called": true,
+          "tool_details": null
+        }
+      ],
+      "tool_results": [],
+      "feedback": null,
+      "llm_override": null,
+      "producing_llm": "gemini-3.5-flash",
+      "time_in_call_secs": 160,
+      "conversation_turn_metrics": {
+        "metrics": {
+          "convai_llm_service_ttfb": {
+            "elapsed_time": 1.1978508364409208
+          },
+          "convai_llm_tool_request_generation_latency": {
+            "elapsed_time": 1.1985719567164779
+          },
+          "convai_tts_service_ttfb": {
+            "elapsed_time": 0.08619281649589539
+          },
+          "convai_ttf_audio_since_silence": {
+            "elapsed_time": 1.5704816706255078
+          },
+          "convai_turn_silence_before_initiation": {
+            "elapsed_time": 0.224
+          },
+          "convai_turn_asr_latency": {
+            "elapsed_time": 0.04045489802956581
+          },
+          "convai_turn_asr_excess": {
+            "elapsed_time": 0.04045489802956581
+          }
+        },
+        "convai_asr_provider": null,
+        "convai_tts_model": "eleven_v4_turbo",
+        "convai_tts_cascade": null,
+        "voice_id": "eLDc7xhWxG2FElT3kUTj"
+      },
+      "rag_retrieval_info": null,
+      "llm_usage": {
+        "model_usage": {
+          "gemini-3.5-flash": {
+            "input": {
+              "tokens": 1162,
+              "price": 0.0019173
+            },
+            "input_cache_read": {
+              "tokens": 0,
+              "price": 0.0
+            },
+            "input_cache_write": {
+              "tokens": 0,
+              "price": 0.0
+            },
+            "output_total": {
+              "tokens": 51,
+              "price": 0.0005049000000000001
+            }
+          }
+        },
+        "detailed_model_usage": [
+          {
+            "config": {
+              "model": "gemini-3.5-flash",
+              "service_tier": "standard"
+            },
+            "usage": {
+              "input": {
+                "tokens": 1162,
+                "price": 0.0019173
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 51,
+                "price": 0.0005049000000000001
+              }
+            }
+          }
+        ]
+      },
+      "interrupted": false,
+      "ignored_as_backchannel": false,
+      "platform_event": null,
+      "original_message": null,
+      "reasoning": [],
+      "source_medium": null,
+      "source_event_id": 985,
+      "used_static_kb_document_ids": [],
+      "analysis": null,
+      "user_identifier": null,
+      "id": null,
+      "created_at_unix_ms": null,
+      "compaction": null,
+      "triggered_guardrails": [],
+      "file_input": null,
+      "file_inputs": [],
+      "contextual_update_info": null,
+      "config_snapshot_id": null,
+      "origin": null,
+      "reasoned": true
+    },
+    {
+      "role": "agent",
+      "agent_metadata": {
+        "agent_id": "agent_1701m6vfjcehfqfrd118gwmysec0",
+        "branch_id": "agtbrch_9601m6vfjdg0e2ytzpe0edqnhhgz",
+        "workflow_node_id": null,
+        "version_id": "agtvrsn_4401m70jej9cefcasxqn3kjnb5kt"
+      },
+      "message": null,
+      "multivoice_message": null,
+      "tool_calls": [],
+      "tool_results": [
+        {
+          "request_id": "end_call_42a3a2d08b5e4ecc89a4a3684aff3ef9",
+          "tool_name": "end_call",
+          "result_value": "{\"result_type\":\"end_call_success\",\"status\":\"success\",\"reason\":\"The user said goodbye and indicated they are done with the conversation.\",\"message\":null}",
+          "is_error": false,
+          "is_blocked": false,
+          "tool_has_been_called": true,
+          "tool_latency_secs": 0.502386492677033,
+          "error_type": "",
+          "raw_error_message": "",
+          "dynamic_variable_updates": [],
+          "type": "system",
+          "result": {
+            "result_type": "end_call_success",
+            "status": "success",
+            "reason": "The user said goodbye and indicated they are done with the conversation.",
+            "message": null
+          }
+        }
+      ],
+      "feedback": null,
+      "llm_override": null,
+      "producing_llm": null,
+      "time_in_call_secs": 165,
+      "conversation_turn_metrics": null,
+      "rag_retrieval_info": null,
+      "llm_usage": null,
+      "interrupted": false,
+      "ignored_as_backchannel": false,
+      "platform_event": null,
+      "original_message": null,
+      "reasoning": [],
+      "source_medium": null,
+      "source_event_id": 985,
+      "used_static_kb_document_ids": [],
+      "analysis": null,
+      "user_identifier": null,
+      "id": null,
+      "created_at_unix_ms": null,
+      "compaction": null,
+      "triggered_guardrails": [],
+      "file_input": null,
+      "file_inputs": [],
+      "contextual_update_info": null,
+      "config_snapshot_id": null,
+      "origin": null,
+      "reasoned": false
+    }
+  ],
+  "tag_ids": [],
+  "realtime_config_snapshots": null,
+  "orchestrator": "conversational",
+  "realtime_context": null,
+  "otlp_traces": null
+}

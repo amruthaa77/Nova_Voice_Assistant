@@ -84,7 +84,7 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ onNavigate }) => {
               leftIcon={<Mic2 className="w-5 h-5" />}
               rightIcon={<ArrowRight className="w-4 h-4 ml-1" />}
             >
-              Launch Voice Assistant
+              Launch Nova
             </Button>
           </div>
         </div>
@@ -211,7 +211,7 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ onNavigate }) => {
                 <MessageSquare className="w-8 h-8 mx-auto text-slate-600" />
                 <p className="text-sm font-medium">No recorded conversations yet.</p>
                 <p className="text-xs text-slate-500">
-                  Start a session in the Voice Assistant tab to create your first transcript.
+                  Start a session with Nova to create your first transcript.
                 </p>
               </div>
             ) : (

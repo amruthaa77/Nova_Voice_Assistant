@@ -75,14 +75,17 @@ def build_conversation_config(config: Config, voice_id: str) -> Dict[str, Any]:
 
 
 def build_platform_settings() -> Dict[str, Any]:
-    """Construct platform settings that enable voice_id client override.
+    """Construct platform settings that enable client overrides.
 
     Returns:
-        Structured platform_settings dictionary allowing TTS voice_id overrides.
+        Structured platform_settings dictionary allowing TTS and agent overrides.
     """
     return {
         "overrides": {
             "conversation_config_override": {
+                "agent": {
+                    "first_message": True,
+                },
                 "tts": {
                     "voice_id": True,
                 },

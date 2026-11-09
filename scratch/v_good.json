@@ -1,0 +1,25 @@
+{
+  "id": "agtvrsn_4401m70jej9cefcasxqn3kjnb5kt",
+  "agent_id": "agent_1701m6vfjcehfqfrd118gwmysec0",
+  "branch_id": "agtbrch_9601m6vfjdg0e2ytzpe0edqnhhgz",
+  "version_description": "New version of your agent.",
+  "seq_no_in_branch": 3,
+  "time_committed_secs": 1794241939,
+  "parents": {
+    "in_branch_parent_id": "agtvrsn_6401m6vgzng9e6kb2nkj5qgjjedp",
+    "out_of_branch_parent_id": null,
+    "merged_into_branch_id": null,
+    "merged_from_branch_id": null,
+    "merged_from_version_id": null,
+    "rebased_from_version_id": null
+  },
+  "access_info": {
+    "is_creator": true,
+    "creator_name": "A Ruth",
+    "creator_email": "aruth.logs@gmail.com",
+    "role": "admin",
+    "anonymous_access_level_override": null,
+    "access_source": "creator"
+  },
+  "merged_authors": null
+}
