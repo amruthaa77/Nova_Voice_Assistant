@@ -100,23 +100,23 @@ export const VoiceAssistantPage: React.FC = () => {
   );
 
   return (
-    <div className="relative w-full h-full flex flex-col items-center justify-between max-w-3xl mx-auto py-2 sm:py-4 px-3 select-none overflow-hidden">
+    <div className="relative w-full h-full flex flex-col items-center justify-between max-w-3xl mx-auto py-2 sm:py-4 px-2 sm:px-4 select-none overflow-hidden">
       {/* 1. TOP: Dynamic Headline + Subline */}
-      <div className="text-center pt-2 sm:pt-4 z-10 flex-shrink-0">
-        <h1 className="text-3xl sm:text-4xl md:text-[44px] font-extrabold tracking-tight text-white font-display leading-[1.12] drop-shadow-[0_4px_20px_rgba(10,10,18,0.5)] transition-all duration-300">
+      <div className="text-center pt-1 sm:pt-3 z-10 flex-shrink-0 px-2 max-w-full">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-extrabold tracking-tight text-white font-display leading-[1.15] drop-shadow-[0_4px_20px_rgba(10,10,18,0.5)] transition-all duration-300">
           {getHeadline()}
         </h1>
         {status === 'idle' && (
-          <p className="mt-1.5 sm:mt-2 text-[16px] text-white/80 font-normal tracking-wide drop-shadow-sm">
+          <p className="mt-1 sm:mt-1.5 text-xs sm:text-sm md:text-[15px] text-white/80 font-normal tracking-wide drop-shadow-sm">
             Your helpful assistant. Just say the word.
           </p>
         )}
       </div>
 
       {/* 2. CENTER: 3D Nova Mascot (Accessible Button) with Speech Bubble */}
-      <div className="relative w-full flex-1 flex items-center justify-center my-auto min-h-[280px] sm:min-h-[340px] md:min-h-[380px]">
-        {/* Speech Bubble positioned to Upper-Right of Mascot */}
-        <div className="absolute right-[4%] sm:right-[12%] md:right-[16%] top-[8%] sm:top-[12%] z-20 pointer-events-auto">
+      <div className="relative w-full flex-1 flex items-center justify-center my-auto min-h-0 py-2 sm:py-4">
+        {/* Speech Bubble: Centered above mascot on mobile (< sm), upper-right on tablet/desktop (>= sm) */}
+        <div className="absolute top-0 sm:top-[6%] md:top-[8%] left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:right-[10%] md:right-[14%] lg:right-[16%] z-20 pointer-events-auto">
           <SpeechBubble
             status={status}
             errorMessage={sessionError}
@@ -126,7 +126,7 @@ export const VoiceAssistantPage: React.FC = () => {
         </div>
 
         {/* 3D Nova Mascot (Accessible Clickable Control) */}
-        <div className="w-full max-w-[460px] h-[280px] sm:h-[340px] md:h-[370px] flex items-center justify-center scale-90 sm:scale-100 transition-transform">
+        <div className="w-full max-w-[320px] sm:max-w-[420px] md:max-w-[460px] h-[220px] sm:h-[300px] md:h-[360px] flex items-center justify-center transition-transform">
           <NovaCanvas
             status={status}
             isSessionActive={isSessionActive}
@@ -138,8 +138,8 @@ export const VoiceAssistantPage: React.FC = () => {
       </div>
 
       {/* 3. BOTTOM: Primary Pill Button + Controls + Hint Line */}
-      <div className="w-full max-w-[420px] flex flex-col items-center gap-2.5 z-20 pb-3 sm:pb-6 flex-shrink-0">
-        <div className="flex items-center justify-center gap-3 sm:gap-4 w-full">
+      <div className="w-full max-w-[420px] flex flex-col items-center gap-2 sm:gap-2.5 z-20 pb-2 sm:pb-6 flex-shrink-0 px-2">
+        <div className="flex items-center justify-center gap-2 sm:gap-4 w-full">
           {/* Active-Session: End-Call Button (Left, >=44px) */}
           {isSessionActive && (
             <button
@@ -152,11 +152,11 @@ export const VoiceAssistantPage: React.FC = () => {
             </button>
           )}
 
-          {/* Primary Pill Button (56px tall, min-w 220px, Lavender-to-Peach Gradient) */}
+          {/* Primary Pill Button (56px tall on desktop, fluid min-w on mobile, Lavender-to-Peach Gradient) */}
           <button
             onClick={handleToggleSession}
             disabled={!backendConnected || status === 'connecting'}
-            className={`h-14 min-w-[210px] sm:min-w-[230px] px-8 rounded-full flex items-center justify-center gap-3 text-[15px] sm:text-base font-semibold text-white transition-all duration-200 select-none shadow-active-pill ${
+            className={`h-12 sm:h-14 min-w-0 flex-1 sm:flex-initial max-w-[240px] sm:max-w-none sm:min-w-[220px] px-4 sm:px-8 rounded-full flex items-center justify-center gap-2.5 sm:gap-3 text-sm sm:text-base font-semibold text-white transition-all duration-200 select-none shadow-active-pill ${
               status === 'connecting'
                 ? 'opacity-60 cursor-not-allowed bg-white/20'
                 : 'active-nav-pill hover:brightness-105 active:scale-[0.98] cursor-pointer'
@@ -220,7 +220,7 @@ export const VoiceAssistantPage: React.FC = () => {
         </div>
 
         {/* Short Hint Line */}
-        <p className="text-[13px] font-medium text-white/70 text-center tracking-tight">
+        <p className="text-xs sm:text-[13px] font-medium text-white/70 text-center tracking-tight">
           {isSessionActive ? 'Tap Nova to end' : 'Or tap Nova'}
         </p>
 
@@ -298,17 +298,18 @@ export const VoiceAssistantPage: React.FC = () => {
 
       {/* Mobile Bottom Sheet Transcript (<= 768px) */}
       {showTranscripts && (
-        <aside className="fixed inset-x-3 bottom-3 max-h-[48vh] rounded-[26px] aurora-glass border border-white/20 p-4 z-50 shadow-2xl flex flex-col md:hidden animate-in slide-in-from-bottom duration-200">
+        <aside className="fixed inset-x-3 bottom-3 max-h-[55vh] rounded-[24px] aurora-glass border border-white/20 p-4 z-50 shadow-2xl flex flex-col md:hidden animate-in slide-in-from-bottom duration-200">
           <div className="flex items-center justify-between pb-2 border-b border-white/10">
             <span className="text-xs font-bold text-white font-display">Conversation Transcript</span>
             <button
               onClick={() => setShowTranscripts(false)}
-              className="p-1 rounded-full text-white/60 hover:text-white"
+              className="w-8 h-8 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+              aria-label="Close transcript"
             >
-              <ChevronDown className="w-4 h-4" />
+              <ChevronDown className="w-5 h-5" />
             </button>
           </div>
-          <div className="flex-1 overflow-y-auto py-2.5 space-y-2">
+          <div className="flex-1 overflow-y-auto py-2.5 space-y-2 pr-1">
             {currentTurns.length === 0 ? (
               <div className="flex-1 flex items-center justify-center text-center p-4 text-white/50 text-xs">
                 Your conversation with Nova will appear here.
@@ -316,13 +317,18 @@ export const VoiceAssistantPage: React.FC = () => {
             ) : (
               currentTurns.map((turn, idx) => (
                 <div key={idx} className={`flex flex-col ${turn.speaker === 'You' ? 'items-end' : 'items-start'}`}>
-                  <span className="text-[10px] text-white/40">
+                  <span className="text-[10px] text-white/40 mb-0.5 px-1">
                     {turn.speaker === 'Assistant' ? 'Nova' : turn.speaker}
                   </span>
-                  <p className="text-xs text-white bg-white/15 px-3 py-1.5 rounded-xl max-w-[85%]">{turn.text}</p>
+                  <p className={`text-xs px-3.5 py-2 rounded-2xl max-w-[85%] ${
+                    turn.speaker === 'You'
+                      ? 'active-nav-pill text-white font-medium rounded-br-xs'
+                      : 'bg-white/15 text-white border border-white/15 rounded-bl-xs'
+                  }`}>{turn.text}</p>
                 </div>
               ))
             )}
+            <div ref={transcriptsEndRef} />
           </div>
         </aside>
       )}

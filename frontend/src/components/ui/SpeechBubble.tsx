@@ -126,9 +126,9 @@ export const SpeechBubble: React.FC<SpeechBubbleProps> = ({
           </div>
 
           {/* Trailing comic dots pointing down toward Nova mascot */}
-          <div className="absolute -bottom-2.5 left-4 flex flex-col items-center">
+          <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 sm:left-4 sm:translate-x-0 flex flex-col items-center">
             <div className="w-2.5 h-2.5 bg-white rounded-full shadow-sm" />
-            <div className="w-1.5 h-1.5 bg-white rounded-full mt-0.5 -ml-1.5 shadow-sm" />
+            <div className="w-1.5 h-1.5 bg-white rounded-full mt-0.5 sm:-ml-1.5 shadow-sm" />
           </div>
         </motion.div>
       </AnimatePresence>

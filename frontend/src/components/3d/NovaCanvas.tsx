@@ -113,7 +113,7 @@ export const NovaCanvas: React.FC<NovaCanvasProps> = ({
       }}
       onMouseDown={() => setIsPressed(true)}
       onMouseUp={() => setIsPressed(false)}
-      className="relative w-full h-[280px] sm:h-[340px] md:h-[370px] flex items-center justify-center select-none cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-[#B9AEFF]/70 rounded-[36px] transition-all"
+      className="relative w-full h-[220px] sm:h-[300px] md:h-[360px] flex items-center justify-center select-none cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-[#B9AEFF]/70 rounded-[36px] transition-all"
     >
       <WebGLErrorBoundary fallback={<NovaFallback status={status} />}>
         <Suspense fallback={<NovaFallback status={status} />}>

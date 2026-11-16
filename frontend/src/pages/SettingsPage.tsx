@@ -76,10 +76,10 @@ export const SettingsPage: React.FC = () => {
   return (
     <div className="space-y-6 max-w-4xl">
       {/* 1. Voice Model Selection */}
-      <GlassCard className="p-6 space-y-5" glow="cyan">
-        <div className="flex items-center justify-between pb-4 border-b border-white/10">
+      <GlassCard className="p-4 sm:p-6 space-y-4 sm:space-y-5" glow="cyan">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-white/10">
           <div className="flex items-center gap-2.5">
-            <Volume2 className="w-5 h-5 text-cyan-400" />
+            <Volume2 className="w-5 h-5 text-cyan-400 flex-shrink-0" />
             <div>
               <h3 className="text-base font-bold text-white">Voice Model Selection</h3>
               <p className="text-xs text-slate-400">
@@ -94,6 +94,7 @@ export const SettingsPage: React.FC = () => {
             onClick={reloadVoices}
             isLoading={isLoadingVoices}
             leftIcon={<RefreshCw className="w-3.5 h-3.5" />}
+            className="w-full sm:w-auto"
           >
             Refresh Voices
           </Button>

@@ -38,62 +38,62 @@ export const AnalyticsPage: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Top Stat Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <GlassCard className="p-5" hoverEffect>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        <GlassCard className="p-4 sm:p-5 min-w-0" hoverEffect>
           <div className="flex items-center justify-between text-xs font-medium text-slate-400 uppercase tracking-wider">
             <span>Total Sessions</span>
             <div className="p-2 rounded-xl bg-cyan-500/10 text-cyan-400">
               <MessageSquare className="w-5 h-5" />
             </div>
           </div>
-          <div className="mt-4">
-            <div className="text-3xl font-extrabold text-white font-mono">{totalSessions}</div>
-            <p className="text-xs text-slate-400 mt-1">Archived in transcripts/</p>
+          <div className="mt-3 sm:mt-4 min-w-0">
+            <div className="text-2xl sm:text-3xl font-extrabold text-white font-mono truncate">{totalSessions}</div>
+            <p className="text-xs text-slate-400 mt-1 truncate">Archived in transcripts/</p>
           </div>
         </GlassCard>
 
-        <GlassCard className="p-5" hoverEffect>
+        <GlassCard className="p-4 sm:p-5 min-w-0" hoverEffect>
           <div className="flex items-center justify-between text-xs font-medium text-slate-400 uppercase tracking-wider">
             <span>Avg Session Length</span>
             <div className="p-2 rounded-xl bg-purple-500/10 text-purple-400">
               <Clock className="w-5 h-5" />
             </div>
           </div>
-          <div className="mt-4">
-            <div className="text-3xl font-extrabold text-white font-mono">
+          <div className="mt-3 sm:mt-4 min-w-0">
+            <div className="text-2xl sm:text-3xl font-extrabold text-white font-mono truncate">
               {Math.round(avgDuration)}s
             </div>
-            <p className="text-xs text-slate-400 mt-1">
+            <p className="text-xs text-slate-400 mt-1 truncate">
               Total spoken: {Math.round(totalDuration)}s
             </p>
           </div>
         </GlassCard>
 
-        <GlassCard className="p-5" hoverEffect>
+        <GlassCard className="p-4 sm:p-5 min-w-0" hoverEffect>
           <div className="flex items-center justify-between text-xs font-medium text-slate-400 uppercase tracking-wider">
             <span>Avg Turns / Session</span>
             <div className="p-2 rounded-xl bg-blue-500/10 text-blue-400">
               <TrendingUp className="w-5 h-5" />
             </div>
           </div>
-          <div className="mt-4">
-            <div className="text-3xl font-extrabold text-white font-mono">{avgTurns}</div>
-            <p className="text-xs text-slate-400 mt-1">{totalTurns} total dialog turns</p>
+          <div className="mt-3 sm:mt-4 min-w-0">
+            <div className="text-2xl sm:text-3xl font-extrabold text-white font-mono truncate">{avgTurns}</div>
+            <p className="text-xs text-slate-400 mt-1 truncate">{totalTurns} total dialog turns</p>
           </div>
         </GlassCard>
 
-        <GlassCard className="p-5" hoverEffect>
+        <GlassCard className="p-4 sm:p-5 min-w-0" hoverEffect>
           <div className="flex items-center justify-between text-xs font-medium text-slate-400 uppercase tracking-wider">
             <span>API Latency</span>
             <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-400">
               <Activity className="w-5 h-5" />
             </div>
           </div>
-          <div className="mt-4">
-            <div className="text-3xl font-extrabold text-white font-mono">
+          <div className="mt-3 sm:mt-4 min-w-0">
+            <div className="text-2xl sm:text-3xl font-extrabold text-white font-mono truncate">
               {backendConnected ? `${latencyMs ?? 0}ms` : '--'}
             </div>
-            <p className="text-xs text-slate-400 mt-1">
+            <p className="text-xs text-slate-400 mt-1 truncate">
               {backendConnected ? 'FastAPI live telemetry' : 'Backend offline'}
             </p>
           </div>
@@ -174,7 +174,7 @@ export const AnalyticsPage: React.FC = () => {
           </div>
 
           <div className="space-y-3 pt-2">
-            <div className="p-3 rounded-xl bg-midnight-950/60 border border-white/5 flex items-center justify-between">
+            <div className="p-3 rounded-xl bg-midnight-950/60 border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2">
               <span className="text-xs text-slate-400 flex items-center gap-2">
                 <Cpu className="w-4 h-4 text-cyan-400" />
                 Backend REST Endpoint
@@ -182,7 +182,7 @@ export const AnalyticsPage: React.FC = () => {
               <span className="text-xs font-mono text-cyan-300">http://127.0.0.1:8000</span>
             </div>
 
-            <div className="p-3 rounded-xl bg-midnight-950/60 border border-white/5 flex items-center justify-between">
+            <div className="p-3 rounded-xl bg-midnight-950/60 border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2">
               <span className="text-xs text-slate-400 flex items-center gap-2">
                 <Activity className="w-4 h-4 text-purple-400" />
                 Web Application Port
@@ -190,7 +190,7 @@ export const AnalyticsPage: React.FC = () => {
               <span className="text-xs font-mono text-purple-300">http://localhost:5173</span>
             </div>
 
-            <div className="p-3 rounded-xl bg-midnight-950/60 border border-white/5 flex items-center justify-between">
+            <div className="p-3 rounded-xl bg-midnight-950/60 border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2">
               <span className="text-xs text-slate-400 flex items-center gap-2">
                 <BarChart3 className="w-4 h-4 text-emerald-400" />
                 Audio Buffer Size

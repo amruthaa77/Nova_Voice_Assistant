@@ -52,12 +52,12 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ onNavigate }) => {
   return (
     <div className="space-y-6">
       {/* Hero Welcome Banner */}
-      <GlassCard className="p-6 sm:p-8 overflow-hidden relative" glow="cyan">
+      <GlassCard className="p-5 sm:p-7 lg:p-8 overflow-hidden relative" glow="cyan">
         <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-cyan-500/15 via-blue-500/10 to-transparent rounded-full blur-3xl pointer-events-none" />
 
-        <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-          <div className="space-y-3 max-w-2xl">
-            <div className="flex items-center gap-2">
+        <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-5 sm:gap-6">
+          <div className="space-y-2.5 sm:space-y-3 max-w-2xl min-w-0">
+            <div className="flex flex-wrap items-center gap-2">
               <Badge variant="cyan" pulse size="sm">
                 System Ready
               </Badge>
@@ -66,17 +66,17 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ onNavigate }) => {
               </span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold tracking-tight text-white">
               Next-Gen Real-Time Voice Assistant
             </h2>
 
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+            <p className="text-xs sm:text-sm lg:text-base text-slate-300 leading-relaxed">
               Powered by ElevenLabs Conversational AI with ultra-low latency audio, natural
               barge-in interruption, and deep conversational intelligence.
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 flex-shrink-0">
             <Button
               variant="primary"
               size="lg"
@@ -219,11 +219,11 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ onNavigate }) => {
                 <div
                   key={t.filename}
                   onClick={() => onNavigate('history')}
-                  className="p-4 hover:bg-white/5 transition-colors cursor-pointer flex items-center justify-between gap-4"
+                  className="p-3.5 sm:p-4 hover:bg-white/5 transition-colors cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between gap-3"
                 >
                   <div className="flex items-center gap-3.5 min-w-0">
                     <div
-                      className={`p-2.5 rounded-xl ${
+                      className={`p-2.5 rounded-xl flex-shrink-0 ${
                         t.mode === 'agent'
                           ? 'bg-cyan-500/10 text-cyan-400'
                           : 'bg-purple-500/10 text-purple-400'
@@ -239,7 +239,7 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ onNavigate }) => {
                       <div className="text-sm font-semibold text-slate-200 truncate">
                         {t.filename}
                       </div>
-                      <div className="text-xs text-slate-400 mt-0.5 flex items-center gap-2">
+                      <div className="text-xs text-slate-400 mt-0.5 flex flex-wrap items-center gap-1.5 sm:gap-2">
                         <span>{t.start_time ? new Date(t.start_time).toLocaleString() : 'Recent session'}</span>
                         <span>•</span>
                         <span>{t.total_turns} turns</span>
@@ -247,7 +247,7 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ onNavigate }) => {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-between sm:justify-end gap-3 pt-2 sm:pt-0 border-t sm:border-t-0 border-white/5 flex-shrink-0">
                     <Badge variant={t.mode === 'agent' ? 'cyan' : 'violet'} size="sm">
                       {t.mode}
                     </Badge>

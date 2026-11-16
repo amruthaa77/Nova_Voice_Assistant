@@ -74,7 +74,7 @@ export const HistoryPage: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Search and Filters Bar */}
-      <GlassCard className="p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4">
+      <GlassCard className="p-3.5 sm:p-5 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 sm:gap-4">
         {/* Search input */}
         <div className="relative w-full md:w-80">
           <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -88,13 +88,13 @@ export const HistoryPage: React.FC = () => {
         </div>
 
         {/* Filter buttons & Reload */}
-        <div className="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 w-full md:w-auto justify-between md:justify-end">
           <div className="flex items-center p-1 rounded-xl bg-midnight-950/80 border border-white/10">
             {(['all', 'agent', 'pipeline'] as const).map((mode) => (
               <button
                 key={mode}
                 onClick={() => setSelectedModeFilter(mode)}
-                className={`px-3 py-1 rounded-lg text-xs font-semibold capitalize transition-all duration-200 ${
+                className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs font-semibold capitalize transition-all duration-200 cursor-pointer ${
                   selectedModeFilter === mode
                     ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 shadow-glow-cyan'
                     : 'text-slate-400 hover:text-white'
@@ -145,13 +145,13 @@ export const HistoryPage: React.FC = () => {
                   <GlassCard
                     key={t.filename}
                     onClick={() => handleSelectTranscript(t)}
-                    className={`p-4 cursor-pointer transition-all duration-200 flex items-center justify-between gap-4 ${
+                    className={`p-3.5 sm:p-4 cursor-pointer transition-all duration-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${
                       isSelected
                         ? 'border-cyan-500/50 bg-midnight-900/90 shadow-glow-subtle'
                         : 'hover:bg-white/5'
                     }`}
                   >
-                    <div className="flex items-center gap-3.5 min-w-0">
+                    <div className="flex items-center gap-3 sm:gap-3.5 min-w-0">
                       <div
                         className={`p-2.5 rounded-xl flex-shrink-0 ${
                           t.mode === 'agent'
@@ -170,7 +170,7 @@ export const HistoryPage: React.FC = () => {
                         <div className="text-sm font-semibold text-slate-200 truncate">
                           {t.filename}
                         </div>
-                        <div className="text-xs text-slate-400 mt-1 flex flex-wrap items-center gap-2">
+                        <div className="text-xs text-slate-400 mt-1 flex flex-wrap items-center gap-1.5 sm:gap-2">
                           <span className="flex items-center gap-1 font-mono">
                             <Calendar className="w-3 h-3 text-slate-500" />
                             {t.start_time
@@ -183,7 +183,7 @@ export const HistoryPage: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-3 flex-shrink-0">
+                    <div className="flex items-center justify-between sm:justify-end gap-2.5 sm:gap-3 pt-2 sm:pt-0 border-t sm:border-t-0 border-white/5 flex-shrink-0">
                       <Badge variant={t.mode === 'agent' ? 'cyan' : 'violet'} size="sm">
                         {t.mode}
                       </Badge>
@@ -191,7 +191,7 @@ export const HistoryPage: React.FC = () => {
                         <Clock className="w-3 h-3 text-slate-500" />
                         {formatDuration(t.duration_seconds)}
                       </span>
-                      <ArrowRight className="w-4 h-4 text-slate-500" />
+                      <ArrowRight className="w-4 h-4 text-slate-500 hidden sm:block" />
                     </div>
                   </GlassCard>
                 );
@@ -202,8 +202,15 @@ export const HistoryPage: React.FC = () => {
 
         {/* Right Detail Pane */}
         {selectedSummary && (
-          <div className="lg:col-span-6 sticky top-6">
-            <GlassCard className="p-5 flex flex-col max-h-[80vh] overflow-hidden" glow="cyan">
+          <>
+            {/* Mobile backdrop overlay for detail drawer */}
+            <div
+              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden"
+              onClick={closeDetail}
+              aria-hidden="true"
+            />
+            <div className="fixed inset-3 sm:inset-6 z-50 lg:static lg:inset-auto lg:z-auto lg:col-span-6 lg:sticky lg:top-6">
+              <GlassCard className="p-4 sm:p-5 flex flex-col h-full max-h-[88vh] lg:max-h-[80vh] overflow-hidden shadow-2xl" glow="cyan">
               {/* Header */}
               <div className="flex items-center justify-between pb-4 border-b border-white/10">
                 <div className="min-w-0">
@@ -297,7 +304,8 @@ export const HistoryPage: React.FC = () => {
               </div>
             </GlassCard>
           </div>
-        )}
+        </>
+      )}
       </div>
     </div>
   );

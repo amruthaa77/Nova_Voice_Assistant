@@ -30,7 +30,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentPage, onNavigate }) => 
   ];
 
   return (
-    <aside className="relative z-30 flex-shrink-0 my-3.5 sm:my-4 ml-3.5 sm:ml-4 w-52 sm:w-60 h-[calc(100vh-28px)] sm:h-[calc(100vh-32px)] rounded-[28px] sm:rounded-[32px] aurora-glass p-3.5 sm:p-4 flex flex-col justify-between shadow-2xl select-none">
+    <aside className="hidden lg:flex relative z-30 flex-shrink-0 my-3.5 sm:my-4 ml-3.5 sm:ml-4 w-56 lg:w-60 h-[calc(100vh-28px)] sm:h-[calc(100vh-32px)] rounded-[28px] sm:rounded-[32px] aurora-glass p-3.5 sm:p-4 flex-col justify-between shadow-2xl select-none">
       {/* Top Branding Section */}
       <div>
         <div className="flex items-center gap-2.5 px-3 py-2.5 mb-6">
